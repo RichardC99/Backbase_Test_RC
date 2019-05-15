@@ -23,4 +23,3 @@ class Basepage():
     def filter_by_name_input(self, value):
         self.browser.find_element_by_id("searchbox").send_keys(value)
 
-  
