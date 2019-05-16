@@ -4,26 +4,33 @@ import config
 
 
 # Givens
-@given('the User enters <Computer_name> computer name')
-def step_impl(context):
-    pass
+@given('the User enters {Computer_name} computer name')
+def step_impl(context, computer_name):
+    page = CreatePage(context.browser)
+    name = computer_name.replace("null", "")
+    page.enter_computer(name)
+
 
 @given('the user enters {date} {format} date')
 def step_impl(context, date, format):
     page = CreatePage(context.browser)
+    date = date.replace("null", "")
+
     if format == "introduced":
+        context.intro_date = date
         page.enter_intro_date(date)
     else:
+        context.discon_date = date
         page.enter_disc_date(date)
 
+@given('the user selects {Company} company')
+def step_impl(context, company):
+    if company == "null":
+        pass
+    else:
+        page = CreatePage(context.browser)
+        page.
 
-@given('the user enters <Discontinued_Date> discontinued date')
-def step_impl(context):
-    pass
-
-@given('the user selects <Company> company')
-def step_impl(context):
-    pass
 
 
 
