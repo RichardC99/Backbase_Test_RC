@@ -28,7 +28,7 @@ class Homepage(Basepage):
         text = self.browser.find_element(*HomePageLocators.computer_count).text
         text = text.replace(" computers found", "")
         text = text.replace(",", "")
-        print(text)
+        return int(text)
 
     def computer_created(self, computer_name):
 

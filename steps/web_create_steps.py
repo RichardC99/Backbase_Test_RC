@@ -9,7 +9,7 @@ import config
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
     page = CreatePage(context.browser)
-    computer_name = computer_name
+    context.computer_name = computer_name
     name = computer_name.replace("null", "")
     page.enter_computer(name)
     # context.janitors.append(CleanUpAfterTest())
@@ -71,6 +71,13 @@ def step_impl(context):
 def step_impl(context):
     page = Homepage(context.browser)
     assert page.computer_created(context.computer_name), "Computer not created"
+
+@then('the computer has been added to the table with the correct information')
+def step_impl(context):
+    page = Homepage(context.browser)
+
+
+
 
 
 

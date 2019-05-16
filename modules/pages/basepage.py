@@ -30,10 +30,6 @@ class Basepage():
         select = Select(self.browser.find_element(*element))
         select.select_by_visible_text(value)
 
-    def page_loaded(self, *element):
-        wait = WebDriverWait(self.browser, 10)
-        wait.until(EC.visibility_of_element_located(*element))
-        print("page loaded")
 
 
 
