@@ -28,8 +28,8 @@ class Basepage():
         return self.browser.find_element(*element)
 
     def select_dropdown_by_text(self, value, *element):
-        element = self.browser.find_element(*element).click()
-        Select(element).select_by_visible_text(value)
+        select = Select(self.browser.find_element(*element))
+        select.select_by_visible_text(value)
 
 
 

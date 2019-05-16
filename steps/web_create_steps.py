@@ -4,7 +4,7 @@ import config
 
 
 # Givens
-@given('the User enters {Computer_name} computer name')
+@given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
     page = CreatePage(context.browser)
     name = computer_name.replace("null", "")
@@ -23,13 +23,14 @@ def step_impl(context, date, format):
         context.discon_date = date
         page.enter_disc_date(date)
 
-@given('the user selects {Company} company')
+@given('the user selects {company} company')
 def step_impl(context, company):
     if company == "null":
         pass
     else:
         page = CreatePage(context.browser)
         page.select_company(company)
+
 
 
 

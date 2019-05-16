@@ -24,6 +24,8 @@ class CreatePageLocators:
     discontinued_date =(By.ID, "discontinued")
 
     company_dropdown = (By.ID, "company")
+
+    create_computer = (By.XPATH, "//*[@id=\"main\"]/form/div/input")
 class EditPageLocators:
     pass
 
