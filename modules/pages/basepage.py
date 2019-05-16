@@ -24,14 +24,16 @@ class Basepage():
         self.browser.find_element(*element).send_keys(text)
 
     def find_element(self, *element):
-
-        return self.browser.find_element(*element)
+       return self.browser.find_element(*element)
 
     def select_dropdown_by_text(self, value, *element):
         select = Select(self.browser.find_element(*element))
         select.select_by_visible_text(value)
 
-
+    def page_loaded(self, *element):
+        wait = WebDriverWait(self.browser, 10)
+        wait.until(EC.visibility_of_element_located(*element))
+        print("page loaded")
 
 
 

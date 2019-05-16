@@ -12,7 +12,7 @@ from time import sleep
 
 class Homepage(Basepage):
 
-    def goto(self):
+    def goto_home_page(self):
         self.browser.get(self.base_url)
 
     def click_add_computer_button(self):
@@ -25,14 +25,16 @@ class Homepage(Basepage):
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
 
     def computer_count(self):
-        self.browser.find_element(*HomePageLocators.computer_count)
+        text = self.browser.find_element(*HomePageLocators.computer_count).text
+        text = text.replace(" computers found", "")
+        text = text.replace(",", "")
+        print(text)
 
     def computer_created(self, computer_name):
 
         text = self.find_element(*HomePageLocators.computer_created_message).text
-        print(text)
 
-        if text == "Add a computer":
+        if text == f"Done! Computer {computer_name} has been created":
             return True
         else:
             return False

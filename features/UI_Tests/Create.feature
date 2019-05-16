@@ -15,8 +15,7 @@ Feature: Computer can be added, including validation
         And the user selects <Company> company
         When the user clicks Save_this_computer
         Then the Computer will be created
-#        And the user will be navigated back to "BB_Create_Test_Webpage"
-#        And the number of computers found will increase by 1
+        And the number of computers found will increase by 1
 #        And the computer has been added to the table with the correct information
 #
         Examples:
