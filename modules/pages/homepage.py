@@ -27,6 +27,15 @@ class Homepage(Basepage):
     def computer_count(self):
         self.browser.find_element(*HomePageLocators.computer_count)
 
+    def computer_created(self, computer_name):
+
+        text = self.find_element(*HomePageLocators.computer_created_message).text
+        print(text)
+
+        if text == "Add a computer":
+            return True
+        else:
+            return False
 
 
 

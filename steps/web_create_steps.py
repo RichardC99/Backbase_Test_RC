@@ -7,6 +7,7 @@ import config
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
     page = CreatePage(context.browser)
+    context.computer_name = computer_name
     name = computer_name.replace("null", "")
     page.enter_computer(name)
 
@@ -23,13 +24,25 @@ def step_impl(context, date, format):
         context.discon_date = date
         page.enter_disc_date(date)
 
+
 @given('the user selects {company} company')
 def step_impl(context, company):
+
     if company == "null":
+        context.company = ""
         pass
     else:
+        context.company = company
         page = CreatePage(context.browser)
         page.select_company(company)
+        print(context.intro_date)
+        print(context.discon_date)
+
+
+@when('the user clicks Save_this_computer')
+def step_impl(context):
+    page = CreatePage(context.browser)
+    page.click_create()
 
 
 
@@ -49,6 +62,13 @@ def step_impl(context, company):
 def step_impl(context):
     page = CreatePage(context.browser)
     assert page.isat_createpage(), "Not at ADD Computer page"
+
+
+@then('Then the Computer will be created')
+def step_impl(context):
+    page = CreatePage(context.browser)
+    assert page.computer_created(), "Computer not created"
+
 
 
 

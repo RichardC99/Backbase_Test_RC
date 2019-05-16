@@ -11,6 +11,7 @@ class HomePageLocators():
 
     computer_count = (By.XPATH, "//*[@id=\"main\"]/h1")
 
+    computer_created_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
 
 
 
@@ -26,6 +27,8 @@ class CreatePageLocators:
     company_dropdown = (By.ID, "company")
 
     create_computer = (By.XPATH, "//*[@id=\"main\"]/form/div/input")
+
+
 class EditPageLocators:
     pass
 

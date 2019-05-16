@@ -12,6 +12,7 @@ from time import sleep
 class CreatePage(Basepage):
 
     def enter_computer(self, name):
+
         self.enter_text(name, *CreatePageLocators.computer_name_input)
 
     def enter_intro_date(self, date):
@@ -22,6 +23,9 @@ class CreatePage(Basepage):
 
     def select_company(self, company):
         self.select_dropdown_by_text(company, *CreatePageLocators.company_dropdown)
+
+    def click_create(self):
+        self.click_element(*CreatePageLocators.create_computer)
 
 
 
