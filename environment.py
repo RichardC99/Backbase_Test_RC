@@ -5,7 +5,6 @@ from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import os
 import datetime
 import config
-from modules.pages.pages import Loginpage, Basepage
 import traceback
 
 
@@ -71,7 +70,7 @@ def setup_browser(context):
 
     if "chrome" == driver:
         options = ChromeOptions()
-        options.add_argument("--window-position=2000,0")
+        # options.add_argument("--window-position=2000,0")
         if headless:
             options.add_argument('--headless')
         context.browser = webdriver.Chrome(executable_path=driver_path, chrome_options=options)
@@ -93,9 +92,6 @@ def close_browser(context):
     context.browser = None
 
 
-def logout(context):
-    page = Basepage(context.browser)
-    page.logout()
 
 
 

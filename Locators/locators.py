@@ -12,8 +12,10 @@ class HomePageLocators():
     computer_count = (By.XPATH, "//*[@id=\"main\"]/h1")
 
 
+
+
 class CreatePageLocators:
-    pass
+    add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
 class EditPageLocators:
     pass
