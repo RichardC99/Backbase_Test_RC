@@ -21,7 +21,9 @@ class CreatePage(Basepage):
         self.enter_text(date, *CreatePageLocators.discontinued_date)
 
     def select_company(self, company):
-        self.select_dropdown_by_value()
+        self.select_dropdown_by_text(company, *CreatePageLocators.company_dropdown)
+
+
 
 
 

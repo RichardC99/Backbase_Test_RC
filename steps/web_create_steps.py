@@ -29,7 +29,7 @@ def step_impl(context, company):
         pass
     else:
         page = CreatePage(context.browser)
-        page.
+        page.select_company(company)
 
 
 
