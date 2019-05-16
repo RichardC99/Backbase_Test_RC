@@ -38,8 +38,6 @@ def step_impl(context, company):
         context.company = company
         page = CreatePage(context.browser)
         page.select_company(company)
-        print(context.intro_date)
-        print(context.discon_date)
 
 
 @when('the user clicks Save_this_computer')
@@ -74,7 +72,15 @@ def step_impl(context):
 
 @then('the computer has been added to the table with the correct information')
 def step_impl(context):
+    name = context.computer_name
+    intro_date = context.intro_date
+    discon_date = context.discon_date
+    company = context.company
+
     page = Homepage(context.browser)
+    page.enter_into_filter_by_name_input(name)
+    page.click_filter_by_name_button()
+    assert page.table_has_correct_data(name, intro_date, discon_date, company)
 
 
 

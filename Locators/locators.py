@@ -13,7 +13,13 @@ class HomePageLocators():
 
     computer_created_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
 
-    computer_table = (By.XPATH, "//*[@id=\"main\"]/table")
+class ComputerTableLocators():
+
+    table = (By.XPATH, "//*[@id=\"main\"]/table")
+
+    rows = (By.TAG_NAME, "tr")
+
+    columns = (By.XPATH, "//tr[2]/td")
 
 
 class CreatePageLocators:
