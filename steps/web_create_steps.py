@@ -8,9 +8,14 @@ import config
 def step_impl(context):
     pass
 
-@given('the user enters <Introduced_Date> introduced date')
-def step_impl(context):
-    pass
+@given('the user enters {date} {format} date')
+def step_impl(context, date, format):
+    page = CreatePage(context.browser)
+    if format == "introduced":
+        page.enter_intro_date(date)
+    else:
+        page.enter_disc_date(date)
+
 
 @given('the user enters <Discontinued_Date> discontinued date')
 def step_impl(context):

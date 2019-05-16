@@ -11,6 +11,31 @@ from time import sleep
 
 class CreatePage(Basepage):
 
+    def enter_computer(self, name):
+        self.enter_text(name, *CreatePageLocators.computer_name_input)
+
+    def enter_intro_date(self, date):
+        self.enter_text(date, *CreatePageLocators.introduced_date)
+
+    def enter_disc_date(self, date):
+        self.enter_text(date, *CreatePageLocators.discontinued_date)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
     def isat_createpage(self):
         # self.wait_for_element(*CreatePageLocators.add_computer_title)
         text = self.find_element(*CreatePageLocators.add_computer_title).text
