@@ -9,10 +9,10 @@ Feature: Computer can be added, including validation
         Then the user will be navigated to "Create_Computer" page
 #
 #    Scenario Outline: User can create computer with valid data
-#        Given the User enters <Computer_name> computer name
-#        And the user enters <Introduced_Date> introduced date
-#        And the user enters <Discontinued_Date> discontinued date
-#        And the user selects <Company> company
+        Given the User enters <Computer_name> computer name
+        And the user enters <Introduced_Date> introduced date
+        And the user enters <Discontinued_Date> discontinued date
+        And the user selects <Company> company
 #        When the user clicks Save_this_computer
 #        Then the Computer will be created
 #        And the user will be navigated back to "BB_Create_Test_Webpage"

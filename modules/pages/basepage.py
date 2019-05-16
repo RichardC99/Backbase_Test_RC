@@ -17,18 +17,16 @@ class Basepage():
         self.browser = browser
         self.base_url = config.url
 
-    def wait_for_element(self, *element):
-
-        WebDriverWait(self.browser, 10).until(
-            EC.presence_of_element_located(*element)
-        )
-
     def click_element(self, *element):
         self.browser.find_element(*element).click()
 
+    def enter_text(self, text, *element):
+        self.browser.find_element(*element).send_keys(text)
 
     def find_element(self, *element):
 
         return self.browser.find_element(*element)
+
+
 
 
