@@ -17,6 +17,13 @@ class HomePageLocators():
 class CreatePageLocators:
     add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
+    computer_name_input = (By.ID, "name")
+
+    introduced_date = (By.ID, "introduced")
+
+    discontinued_date =(By.ID, "discontinued")
+
+    company_dropdown = (By.ID, "company")
 class EditPageLocators:
     pass
 
