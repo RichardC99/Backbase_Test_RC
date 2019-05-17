@@ -1,13 +1,5 @@
-from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import Select
 from modules.pages.basepage import Basepage
 from Locators.locators import CreateAndEditPageLocators
-import config
-
-from time import sleep
 
 class CreateAndEditPage(Basepage):
 
@@ -24,8 +16,8 @@ class CreateAndEditPage(Basepage):
 
         self.select_dropdown_by_text(company, *CreateAndEditPageLocators.company_dropdown)
 
-    def click_CreateAndEdit(self):
-        self.click_element(*CreateAndEditPageLocators.CreateAndEdit_computer)
+    def click_Create(self):
+        self.click_element(*CreateAndEditPageLocators.create_computer)
 
     def click_delete_computer(self):
         self.click_element(*CreateAndEditPageLocators.delete_computer_button)
