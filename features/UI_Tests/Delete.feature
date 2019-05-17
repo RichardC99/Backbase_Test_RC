@@ -1,6 +1,7 @@
 Feature: Computer can be added, including validation
 
     Scenario: Delete Computer
+
         Given A user has created a computer with known details
         And the User navigates to the Update Computer screen
         When the Delete Computer button is clicked

@@ -12,7 +12,7 @@ def step_impl(context, computer_name):
     context.computer_name = computer_name
     name = computer_name.replace("null", "")
     page.enter_computer(name)
-    # context.janitors.append(CleanUpAfterTest())
+    context.janitors.append(CleanUpAfterTest(context.computer_name))
 
 
 @given('the user enters {date} {format} date')
@@ -87,15 +87,16 @@ def step_impl(context):
 
 
 
-# class CleanUpAfterTest(AbstractJanitor):
-#     def __init__(self, cleanup):
-#         self = self
-#         self.CleanUp = cleanup
-#
-#     def clean_up(self):
-#         page = Homepage(context.browser)
-#         self.select_computer(context.computer_name)
-#
+class CleanUpAfterTest(AbstractJanitor):
+    def __init__(self, computer_name):
+        self = self
+        self.computer_name = computer_name
+
+    def clean_up(self):
+
+
+        name = context.computer_name
+
 
 
 

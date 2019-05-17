@@ -15,6 +15,12 @@ def step_impl(context):
     page.click_add_computer_button()
 
 
+@given('the User navigates to the Update Computer screen')
+def step_impl(context):
+    page = Homepage(context.browser)
+    page.click_on_computer_name(context.computer_name)
+
+
 @then('the number of computers found will increase by {n}')
 def step_impl(context, n):
     page = Homepage(context.browser)

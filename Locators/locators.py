@@ -1,4 +1,5 @@
 from selenium.webdriver.common.by import By
+import steps.web_create_steps
 
 class HomePageLocators():
     add_computer_button = (By.ID, "add")
@@ -13,13 +14,12 @@ class HomePageLocators():
 
     computer_created_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
 
+    computer_deleted_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
+
+
 class ComputerTableLocators():
 
     table = (By.XPATH, "//*[@id=\"main\"]/table")
-
-    rows = (By.TAG_NAME, "tr")
-
-    columns = (By.XPATH, "//tr[1]/td")
 
     computer_name = "Computer name"
 
@@ -46,7 +46,7 @@ class CreatePageLocators:
 
 
 class EditPageLocators:
-    pass
+    delete_computer_button = (By.XPATH, "//*[@id=\"main\"]/form[2]/input")
 
 
 

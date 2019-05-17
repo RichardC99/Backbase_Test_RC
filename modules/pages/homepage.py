@@ -21,6 +21,9 @@ class Homepage(Basepage):
     def click_add_computer_button(self):
         self.click_element(*HomePageLocators.add_computer_button)
 
+    def click_on_computer_name(self, name):
+        self.click_element(By.LINK_TEXT, name)
+
     def click_filter_by_name_button(self):
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
 
@@ -38,6 +41,13 @@ class Homepage(Basepage):
         text = self.find_element(*HomePageLocators.computer_created_message).text
 
         if text == f"Done! Computer {computer_name} has been created":
+            return True
+        else:
+            return False
+
+    def computer_deleted(self):
+        text = self.find_element(*HomePageLocators.computer_deleted_message)
+        if text == "Done! Computer has been deleted":
             return True
         else:
             return False
@@ -74,6 +84,9 @@ class Homepage(Basepage):
             return True
         else:
             return False
+
+
+
 
 
 
