@@ -16,8 +16,7 @@ class HomePageLocators():
 
     computer_deleted_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
 
-    nothing_to_display = (By.XPATH, "//*[@id=\"main\"]/div[2]/em)")
-
+    nothing_to_display = (By.CSS_SELECTOR, "#main > div.well > em")
 
 class ComputerTableLocators():
 

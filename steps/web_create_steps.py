@@ -1,6 +1,7 @@
 from behave import given, when, then
 from modules.pages.createpage import CreatePage
 from modules.pages.homepage import Homepage
+from modules.pages.editpage import EditPage
 from modules.helpers import AbstractJanitor
 import config
 
@@ -8,11 +9,11 @@ import config
 # Givens
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
-    page = CreatePage(context.browser)
+    context.page = CreatePage(context.browser)
     context.computer_name = computer_name
     name = computer_name.replace("null", "")
-    page.enter_computer(name)
-    context.janitors.append(CleanUpAfterTest(context.computer_name))
+    context.page.enter_computer(name)
+    context.janitors.append(CleanUpAfterTest())
 
 
 @given('the user enters {date} {format} date')
@@ -85,18 +86,24 @@ def step_impl(context):
     assert page.computer_has_correct_company(name, company)
 
 
+# def cleanup(context):
+#     page = Homepage(context.browser)
+#     page.enter_into_filter_by_name_input(context.computer_name)
+#     page.click_filter_by_name_button()
+#     page.click_on_computer_name(context.computer_name)
+#     page = EditPage(context.browser)
+#     page.click_delete_computer()
 
 
 
-class CleanUpAfterTest(AbstractJanitor):
-    def __init__(self, computer_name):
-        self = self
-        self.computer_name = computer_name
+# class CleanUpAfterTest(AbstractJanitor):
+#     def __init__(self):
+#         self = self
+#
+#     def clean_up(self):
+#         cleanup(self.)
+#
 
-    def clean_up(self):
-
-
-        name = context.computer_name
 
 
 

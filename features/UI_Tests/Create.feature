@@ -17,6 +17,7 @@ Feature: Computer can be added, including validation
         Then the Computer will be created
         And the number of computers found will increase by 1
         And the computer has been added to the table with the correct information
+        And the computer is deleted
 #
         Examples:
         |Computer_name     |Introduced_Date|Discontinued_Date|Company           |

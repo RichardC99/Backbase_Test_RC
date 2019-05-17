@@ -35,3 +35,5 @@ def step_impl(context):
     assert page.computer_not_found(), "computer not deleted"
 
 
+
+

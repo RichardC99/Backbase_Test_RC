@@ -38,3 +38,9 @@ def step_impl(context,incdec, n):
         no_computers = context.no_of_computers_start
 
     assert page.computer_count() == (no_computers + n), "computer count not changed"
+
+
+@then('the computer is deleted')
+def step_impl(context):
+    context.execute_steps('the User navigates to the Update Computer screen')
+    context.execute_steps('the Delete Computer button is clicked')
