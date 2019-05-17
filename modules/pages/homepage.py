@@ -1,16 +1,8 @@
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
-from selenium.webdriver.support import expected_conditions as EC
-from selenium.common.exceptions import NoSuchElementException
-from selenium.webdriver.support.ui import Select
 from modules.pages.basepage import Basepage
 from Locators.locators import HomePageLocators, ComputerTableLocators
 import pandas as pd
 import datetime
-
-import config
-
-from time import sleep
 
 
 class Homepage(Basepage):
@@ -22,7 +14,7 @@ class Homepage(Basepage):
         self.click_element(*HomePageLocators.add_computer_button)
 
     def click_on_computer_name(self, name):
-        self.click_element(By.LINK_TEXT, name)
+        link = self.click_element(By.LINK_TEXT, name)
 
     def click_filter_by_name_button(self):
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
@@ -41,6 +33,7 @@ class Homepage(Basepage):
         text = self.browser.find_element(*HomePageLocators.computer_count).text
         text = text.replace(" computers found", "")
         text = text.replace(",", "")
+
         return int(text)
 
     def computer_created(self, computer_name):
@@ -53,11 +46,13 @@ class Homepage(Basepage):
             return False
 
     def computer_deleted(self):
-        text = self.find_element(*HomePageLocators.computer_deleted_message)
+        text = self.find_element(*HomePageLocators.computer_deleted_message).text
+
         if text == "Done! Computer has been deleted":
             return True
         else:
             return False
+
 
     def computer_has_correct_date(self, name, expected_date, date_column):
 

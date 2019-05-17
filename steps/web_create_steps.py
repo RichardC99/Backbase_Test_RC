@@ -32,11 +32,12 @@ def step_impl(context, date, format):
 @given('the user selects {company} company')
 def step_impl(context, company):
     context.company = company
-    if company == "null":
-       pass
-    else:
+    if company != "null":
         page = CreatePage(context.browser)
         page.select_company(company)
+    else:
+        pass
+
 
 
 @when('the user clicks Save_this_computer')
