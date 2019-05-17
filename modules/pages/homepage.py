@@ -30,6 +30,13 @@ class Homepage(Basepage):
     def enter_into_filter_by_name_input(self, value):
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
 
+    def computer_not_found(self):
+        text = self.find_element(*HomePageLocators.nothing_to_display).text
+        if text == "Nothing to display":
+            return True
+        else:
+            return False
+
     def computer_count(self):
         text = self.browser.find_element(*HomePageLocators.computer_count).text
         text = text.replace(" computers found", "")

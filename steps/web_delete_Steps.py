@@ -1,8 +1,7 @@
 from behave import given, when, then
-from modules.pages.createpage import CreatePage
 from modules.pages.editpage import EditPage
 from modules.pages.homepage import Homepage
-from modules.helpers import AbstractJanitor
+from time import sleep
 
 
 @given('A user has created a computer with known details')
@@ -13,19 +12,16 @@ def step_impl(context):
     context.execute_steps('And the user enters <null> introduced date')
     context.execute_steps('And the user enters <null> discontinued date')
     context.execute_steps('And the user selects <null> company')
+    sleep(5)
     context.execute_steps('When the user clicks Save_this_computer')
-
-
-@given('the User navigates to the Update Computer screen')
-def step_impl(context):
-    page = Homepage(context.browser)
-    page.click_on_computer_name(context.computer_name)
 
 
 @when('the Delete Computer button is clicked')
 def step_impl(context):
     page = EditPage(context.browser)
     page.click_delete_computer()
+    sleep(5)
+
 
 @then('the Computer is deleted from the table')
 def step_impl(context):
@@ -33,5 +29,11 @@ def step_impl(context):
     assert page.computer_deleted(), "computer not deleted"
 
 
+@then('the computer will not be able to be found')
+def step_impl(context):
+    page = Homepage(context.browser)
+    page.enter_into_filter_by_name_input(context.computer_name)
+    page.click_filter_by_name_button()
+    assert page.computer_not_found(), "computer not deleted"
 
 

@@ -21,7 +21,11 @@ def step_impl(context):
     page.click_on_computer_name(context.computer_name)
 
 
-@then('the number of computers found will increase by {n}')
-def step_impl(context, n):
+@then('the number of computers found will {incdec} by {n}')
+def step_impl(context,incdec, n):
     page = Homepage(context.browser)
-    assert page.computer_count() == (context.no_of_computers_start+int(n)), "computer count not increased"
+    if incdec == "decrease":
+        n = -int(n)
+    else:
+        n = int(n)
+    assert page.computer_count() == (context.no_of_computers_start + n), "computer count not increased"

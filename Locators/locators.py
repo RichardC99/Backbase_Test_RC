@@ -1,5 +1,5 @@
 from selenium.webdriver.common.by import By
-import steps.web_create_steps
+
 
 class HomePageLocators():
     add_computer_button = (By.ID, "add")
@@ -15,6 +15,8 @@ class HomePageLocators():
     computer_created_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
 
     computer_deleted_message = (By.XPATH, "//*[@id=\"main\"]/div[1]")
+
+    nothing_to_display = (By.XPATH, "//*[@id=\"main\"]/div[2]/em)")
 
 
 class ComputerTableLocators():

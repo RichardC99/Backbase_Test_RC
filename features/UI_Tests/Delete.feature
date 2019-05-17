@@ -1,3 +1,4 @@
+@web
 Feature: Computer can be added, including validation
 
     Scenario: Delete Computer
