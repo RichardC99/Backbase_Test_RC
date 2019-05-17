@@ -32,7 +32,7 @@ class ComputerTableLocators():
 
 
 
-class CreatePageLocators:
+class CreateAndEditPageLocators:
     add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
     computer_name_input = (By.ID, "name")
@@ -45,9 +45,6 @@ class CreatePageLocators:
 
     create_computer = (By.XPATH, "//*[@id=\"main\"]/form/div/input")
 
-
-class EditPageLocators:
-    delete_computer_button = (By.XPATH, "//*[@id=\"main\"]/form[2]/input")
 
 
 

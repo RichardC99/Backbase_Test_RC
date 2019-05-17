@@ -13,7 +13,7 @@ def step_impl(context, computer_name):
     context.computer_name = computer_name
     name = computer_name.replace("null", "")
     context.page.enter_computer(name)
-    context.janitors.append(CleanUpAfterTest())
+    # context.janitors.append(CleanUpAfterTest())
 
 
 @given('the user enters {date} {format} date')

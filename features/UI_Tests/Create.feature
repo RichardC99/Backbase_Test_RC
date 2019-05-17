@@ -4,10 +4,10 @@ Feature: Computer can be added, including validation
     Background: Navigate to Create Computer page
         Given A user has navigated to the BB_Test_Webpage
         And add a new computer is clicked
-##
+
 #    Scenario: User can open Create Computer screen
 #        Then the user will be navigated to "Create_Computer" page
-#
+
     Scenario Outline: User can create computer with valid data
         Given the User enters <Computer_name> computer name
         And the user enters <Introduced_Date> introduced date
@@ -17,20 +17,20 @@ Feature: Computer can be added, including validation
         Then the Computer will be created
         And the number of computers found will increase by 1
         And the computer has been added to the table with the correct information
-        And the computer is deleted
-#
+        And delete computer cleanup
+
         Examples:
-        |Computer_name     |Introduced_Date|Discontinued_Date|Company           |
-#        |BBRC_Create_Test_1|null           |null             |null              |
-#        |BBRC_Create_Test_2|2008-02-29     |null             |null              |
-#        |BBRC_Create_Test_3|2002-04-30     |2002-04-30       |null              |
-        |BBRC_Create_Test_4|2004-7-1       |2020-02-29       |IBM               |
-#        |BBRC_Create_Test_5|null           |2020-02-29       |RCA               |
-#        |BBRC_Create_Test_6|null           |null             |Lincoln_laboratory|
-#        |BBRC_Create_Test_7|1997-09-05     |null             |IBM               |
-#        |BBRC_Create_Test_8|null           |1986-04-07       |null              |
-#
-#
+        |Computer_name     |Introduced_Date|Discontinued_Date|Company                |
+        |BBRC_Create_Test_1|null           |null             |null                   |
+        |BBRC_Create_Test_2|2008-02-29     |null             |null                   |
+        |BBRC_Create_Test_3|2002-04-30     |2002-04-30       |null                   |
+        |BBRC_Create_Test_4|2004-7-1       |2020-02-29       |Commodore International|
+        |BBRC_Create_Test_5|null           |2020-02-29       |Netronics              |
+        |BBRC_Create_Test_6|null           |null             |Thinking Machines      |
+        |BBRC_Create_Test_7|1997-09-05     |null             |IBM                    |
+        |BBRC_Create_Test_8|null           |1986-04-07       |null                   |
+
+
 #    Scenario Outline: User cannot create a computer with invalid data
 #        Given the User enters <Computer_name> computer name
 #        And the user enters <Introduced_Date> introduced date
@@ -66,7 +66,7 @@ Feature: Computer can be added, including validation
 #        Then the user will be navigated back to "BB_Create_Test_Webpage"
 #        And the number of computers found will increase by 0
 #        And the computer will not have been added to the table
-#
+
 
 
 

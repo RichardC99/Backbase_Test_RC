@@ -54,15 +54,16 @@ class Homepage(Basepage):
             return False
 
 
-    def computer_has_correct_date(self, name, expected_date, date_column):
+    def computer_has_correct_date(self, name, date, date_column):
 
-        if expected_date is "null":
-            expected_date = expected_date.replace("null", "-")
+        if date == "null":
+            expected_date = date.replace("null", "-")
         else:
-            expected_date = datetime.datetime.strptime(expected_date, "%Y-%m-%d").strftime("%d %b %Y")
+            expected_date = datetime.datetime.strptime(date, "%Y-%m-%d").strftime("%d %b %Y")
+
+
         if date_column == "intro":
             column = ComputerTableLocators.intro_date
-
         else:
             column = ComputerTableLocators.discon_date
 
