@@ -28,7 +28,10 @@ def step_impl(context):
     page.click_delete_computer()
 
 @then('the Computer is deleted from the table')
-def step_impl():
+def step_impl(context):
+    page = Homepage(context.browser)
+    assert page.computer_deleted(), "computer not deleted"
+
 
 
 
