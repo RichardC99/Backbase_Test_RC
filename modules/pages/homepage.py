@@ -55,20 +55,31 @@ class Homepage(Basepage):
             column = ComputerTableLocators.discon_date
 
         table = self.get_table_data()
-        intro_date = table.loc[name, column]
+        table_date = table.loc[name, column]
 
-        if intro_date == expected_date:
+        if table_date == expected_date:
             return True
         else:
             return False
 
-    def computer_has_correct_company(self, name, company):
+    def computer_has_correct_company(self, name, expected_company):
+        column = ComputerTableLocators.company
+
+        expected_company = expected_company.replace("null", "-")
+
+        table = self.get_table_data()
+        company = table.loc[name, column]
+
+        if company == expected_company:
+            return True
+        else:
+            return False
 
 
 
 
 
-    # company_column = ComputerTableLocators.company
+
 
 
     def get_table_data(self):
