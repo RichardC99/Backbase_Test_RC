@@ -25,6 +25,9 @@ class Basepage():
         select = Select(self.browser.find_element(*element))
         select.select_by_visible_text(value)
 
+    def clear_input(self, *element):
+        self.browser.find_element(*element).clear()
+
 
 
 
