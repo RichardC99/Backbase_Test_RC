@@ -24,13 +24,11 @@ class CreateAndEditPage(Basepage):
     def click_delete_computer(self):
         self.click_element(*CreateAndEditPageLocators.delete_computer_button)
 
-    def isat_Createpage(self):
-        text = self.find_element(*CreateAndEditPageLocators.add_computer_title).text
+    def click_cancel(self):
+        self.click_element(*CreateAndEditPageLocators.cancel_button)
 
-        if text == "Add a computer":
-            return True
-        else:
-            return False
+    def isat_Createpage(self):
+        self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
     def isat_Editpage(self):
         text = self.find_element(*CreateAndEditPageLocators.add_computer_title).text
@@ -39,4 +37,13 @@ class CreateAndEditPage(Basepage):
             return True
         else:
             return False
+
+    def invalid_name_error(self):
+        return self.element_displayed(*CreateAndEditPageLocators.computer_name_required)
+
+    def invalid_intro_date_format(self):
+        return self.element_displayed(*CreateAndEditPageLocators.invalid_intro_date)
+
+    def invalid_discon_date_format(self):
+        return self.element_displayed(*CreateAndEditPageLocators.invalid_dscon_date)
 

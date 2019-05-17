@@ -1,6 +1,7 @@
 from behave import given, when, then
 from modules.pages.homepage import Homepage
-from modules.pages.editpage import EditPage
+from modules.pages.create_and_edit_page import CreateAndEditPage
+
 
 
 @given('A user has navigated to the BB_Test_Webpage')
@@ -43,5 +44,5 @@ def step_impl(context,incdec, n):
 def step_impl(context):
     page = Homepage(context.browser)
     page.click_on_computer_name(context.computer_name)
-    page = EditPage(context.browser)
+    page = CreateAndEditPage(context.browser)
     page.click_delete_computer()

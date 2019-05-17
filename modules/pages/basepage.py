@@ -28,6 +28,15 @@ class Basepage():
     def clear_input(self, *element):
         self.browser.find_element(*element).clear()
 
+    def element_displayed(self, *element):
+        element = self.browser.find_element(*element)
+
+        if element.is_displayed():
+            return True
+        else:
+            return False
+
+
 
 
 

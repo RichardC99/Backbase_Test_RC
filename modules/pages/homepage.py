@@ -29,6 +29,9 @@ class Homepage(Basepage):
         else:
             return False
 
+    def isat_homepage(self):
+        return self.element_displayed(*HomePageLocators.computer_count), "not at homepage"
+
     def computer_count(self):
         text = self.browser.find_element(*HomePageLocators.computer_count).text
         text = text.replace(" computers found", "")

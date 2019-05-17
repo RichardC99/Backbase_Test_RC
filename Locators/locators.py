@@ -55,6 +55,8 @@ class CreateAndEditPageLocators:
 
     invalid_dscon_date = (By.XPATH, "//*[@id=\"main\"]/form/fieldset/div[3]")
 
+    cancel_button = (By.XPATH, "//*[@id=\"main\"]/form/div/a")
+
 
 
 

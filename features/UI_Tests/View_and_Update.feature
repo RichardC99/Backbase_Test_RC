@@ -9,10 +9,10 @@ Feature: Computer can be updated, including validation
         Then the user will be navigated to "Edit_Computer" page
 
     Scenario Outline: User can Edit computer with valid data
-        Given the User edits Computer_name to <Computer_name>
-        And the user edits the introduced date to <Introduced_Date>
-        And the user edits the discontinued date to <Discontinued_Date>
-        And the user edits the company to <Company>
+        Given the User enters <Computer_name> computer name
+        And the user enters <Introduced_Date> introduced date
+        And the user enters <Discontinued_Date> discontinued date
+        And the user selects <Company> company
         When the user clicks Save_this_computer
         Then the Computer will be edited
         And the user will be navigated back to "BB_Test_Webpage"
@@ -33,10 +33,10 @@ Feature: Computer can be updated, including validation
 
 
 #    Scenario Outline: User cannot edit a computer with invalid data
-#        Given the User edits Computer_name to <Computer_name>
-#        And the user edits the introduced date to <Introduced_Date>
-#        And the user edits the discontinued date to <Discontinued_Date>
-#        And the user edits the company to <Company>
+#        Given the User enters <Computer_name> computer name
+#        And the user enters <Introduced_Date> introduced date
+#        And the user enters <Discontinued_Date> discontinued date
+#        And the user selects <Company> company
 #        When the user clicks Save_this_computer
 #        Then the correct error message will appear <error>
 #        And the Computer will not be editd

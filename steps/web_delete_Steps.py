@@ -1,6 +1,6 @@
 from behave import given, when, then
-from modules.pages.editpage import EditPage
 from modules.pages.homepage import Homepage
+from modules.pages.create_and_edit_page import CreateAndEditPage
 from time import sleep
 
 
@@ -17,7 +17,7 @@ def step_impl(context):
 
 @when('the Delete Computer button is clicked')
 def step_impl(context):
-    page = EditPage(context.browser)
+    page = CreateAndEditPage(context.browser)
     page.click_delete_computer()
 
 
@@ -27,7 +27,7 @@ def step_impl(context):
     assert page.computer_deleted(), "computer not deleted"
 
 
-@then('the computer will not be able to be found')
+@then('the computer will not have been added to the table')
 def step_impl(context):
     page = Homepage(context.browser)
     page.enter_into_filter_by_name_input(context.computer_name)

@@ -38,32 +38,30 @@ Feature: Computer can be added, including validation
         And the user selects <Company> company
         When the user clicks Save_this_computer
         Then the correct error message will appear <error>
-        And the Computer will not be created
-        And the number of computers found will increase by 0
-        And the computer will not have been added to the table
+
 #
-#        Examples:
-#        |Computer_name             |Introduced_Date|Discontinued_Date|Company           |error                     |
+        Examples:
+        |Computer_name             |Introduced_Date|Discontinued_Date|Company           |error                     |
         |null                      |2008-01-01     |2008-01-01       |IBM               |name_required             |
-#        |BBRC_Invalid_intro_Date1  |2008/01/01     |null             |null              |Invalid_intro_Date_Format |
+#        |BBRC_Invalid_intro_Date1  |2008/01/01     |null             |null              |invalid_intro_date_format |
 #        |BBRC_Invalid_intro_Date2  |29-02-2008     |null             |null              |Invalid_intro_Date_Format |
 #        |BBRC_Invalid_intro_Date3  |29/02/2008     |null             |null              |Invalid_intro_Date_Format |
 #        |BBRC_Invalid_intro_Date4  |test           |null             |null              |Invalid_intro_Date_Format |
 #        |BBRC_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null              |Invalid_intro_Date_Format |
-#        |BBRC_Invalid_Discon_Date1 |2008/01/01     |2008/01/01       |null              |Invalid_Discon_Date_Format|
-#        |BBRC_Invalid_Discon_Date2 |29-02-2008     |29-02-2008       |null              |Invalid_Discon_Date_Format|
-#        |BBRC_Invalid_Discon_Date3 |29/02/2008     |29/02/2008       |null              |Invalid_Discon_Date_Format|
-#        |BBRC_Invalid_Discon_Date4 |test           |test             |null              |Invalid_Discon_Date_Format|
-#        |BBRC_Invalid_Discon_Date5 |2007-02-29     |2007-02-29       |null              |Invalid_Discon_Date_Format|
+#        |BBRC_Invalid_Discon_Date1 |2008/01/01     |2008/01/01       |null              |invalid_discon_date_format|
+#        |BBRC_Invalid_Discon_Date2 |29-02-2008     |29-02-2008       |null              |invalid_discon_date_format|
+#        |BBRC_Invalid_Discon_Date3 |29/02/2008     |29/02/2008       |null              |invalid_discon_date_format|
+#        |BBRC_Invalid_Discon_Date4 |test           |test             |null              |invalid_discon_date_format|
+#        |BBRC_Invalid_Discon_Date5 |2007-02-29     |2007-02-29       |null              |invalid_discon_date_format|
 #
 #    Scenario: User can cancel adding a computer
 #
 #        Given the User enters Cancel_Button computer name
 #        And the user enters 2008-01-01 introduced date
 #        And the user enters 2020-01-01 discontinued date
-#        And the user selects <IBM> company
+#        And the user selects IBM company
 #        When the user clicks cancel
-#        Then the user will be navigated back to "BB_Create_Test_Webpage"
+#        Then the user will be navigated back to the homepage
 #        And the number of computers found will increase by 0
 #        And the computer will not have been added to the table
 
