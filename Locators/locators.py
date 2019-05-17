@@ -19,7 +19,16 @@ class ComputerTableLocators():
 
     rows = (By.TAG_NAME, "tr")
 
-    columns = (By.XPATH, "//tr[2]/td")
+    columns = (By.XPATH, "//tr[1]/td")
+
+    computer_name = "Computer name"
+
+    intro_date = "Introduced"
+
+    discon_date = "Discontinued"
+
+    company = "Company"
+
 
 
 class CreatePageLocators:

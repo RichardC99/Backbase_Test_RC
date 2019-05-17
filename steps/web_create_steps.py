@@ -18,24 +18,23 @@ def step_impl(context, computer_name):
 @given('the user enters {date} {format} date')
 def step_impl(context, date, format):
     page = CreatePage(context.browser)
-    date = date.replace("null", "")
 
     if format == "introduced":
         context.intro_date = date
+        date = date.replace("null", "")
         page.enter_intro_date(date)
     else:
         context.discon_date = date
+        date = date.replace("null", "")
         page.enter_disc_date(date)
 
 
 @given('the user selects {company} company')
 def step_impl(context, company):
-
+    context.company = company
     if company == "null":
-        context.company = ""
-        pass
+       pass
     else:
-        context.company = company
         page = CreatePage(context.browser)
         page.select_company(company)
 
@@ -80,8 +79,9 @@ def step_impl(context):
     page = Homepage(context.browser)
     page.enter_into_filter_by_name_input(name)
     page.click_filter_by_name_button()
-    assert page.table_has_correct_data(name, intro_date, discon_date, company)
-
+    assert page.computer_has_correct_date(name, intro_date, "intro"), "date is incorrect"
+    assert page.computer_has_correct_date(name, discon_date, "dison"), "date is incorrect"
+    assert page.computer_has_correct_company(name, company)
 
 
 
