@@ -1,6 +1,7 @@
 from behave import given, when, then
 from modules.pages.create_and_edit_page import CreateAndEditPage
 from modules.pages.homepage import Homepage
+from modules.helpers import AbstractJanitor
 
 
 
@@ -13,7 +14,7 @@ def step_impl(context, computer_name):
         context.page.enter_computer(computer_name)
     else:
         pass
-    # context.janitors.append(CleanUpAfterTest())
+
 
 
 @given('the user enters {date} {format} date')
@@ -47,6 +48,7 @@ def step_impl(context, company):
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
     page.click_Create()
+    context.janitors.append(CleanUpAfterTest(context.computer_name))
 
 
 @when('the user clicks cancel')
@@ -114,22 +116,22 @@ def step_impl(context, error):
         assert page.invalid_intro_date_format(), "error message not present"
         assert page.invalid_discon_date_format(), "error message not present"
 
-# def cleanup(context):
-#     page = Homepage(context.browser)
-#     page.enter_into_filter_by_name_input(context.computer_name)
-#     page.click_filter_by_name_button()
-#     page.click_on_computer_name(context.computer_name)
-#     page = EditPage(context.browser)
-#     page.click_delete_computer()
+
+def cleanup(context, computer_name):
+    page = Homepage(context.browser)
+    page.search_for_computer(computer_name)
+    page.click_on_computer_name(computer_name)
+    page = CreateAndEditPage(context.browser)
+    page.click_delete_computer()
 
 
+class CleanUpAfterTest(AbstractJanitor):
+    def __init__(self, computer_name):
 
-# class CleanUpAfterTest(AbstractJanitor):
-#     def __init__(self):
-#         self = self
-#
-#     def clean_up(self):
-#         cleanup(self.)
+        self.name = name
+
+    def clean_up(self):
+        self.cleanup(self.name)
 #
 
 

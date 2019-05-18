@@ -21,7 +21,7 @@ class Homepage(Basepage):
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
 
     def computer_not_found(self):
-        text = self.find_valuet(*HomePageLocators.nothing_to_display).text
+        text = self.find_value(*HomePageLocators.nothing_to_display).text
         if text == "Nothing to display":
             return True
         else:
