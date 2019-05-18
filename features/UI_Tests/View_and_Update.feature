@@ -9,21 +9,21 @@ Feature: Computer can be updated, including validation
         Then the user will be navigated to "Edit_Computer" page
         And delete computer cleanup
 
-#    Scenario Outline: User can Edit computer with valid data
-#        Given the User enters <Computer_name> computer name
-#        And the user enters <Introduced_Date> introduced date
-#        And the user enters <Discontinued_Date> discontinued date
-#        And the user selects <Company> company
-#        When the user clicks Save_this_computer
-#        Then the Computer will be updated
-#        And the user will be navigated back to the homepage
-#        And the number of computers found will increase by 0
-#        And the computer is updated on the table with the correct information
-#        And delete computer cleanup
-#
-#        Examples:
-#        |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
-#        |BBRC_edit_Test_1|null           |null             |null              |
+    Scenario Outline: User can Edit computer with valid data
+        Given the User enters <Computer_name> computer name
+        And the user enters <Introduced_Date> introduced date
+        And the user enters <Discontinued_Date> discontinued date
+        And the user selects <Company> company
+        When the user clicks Save_this_computer
+        Then the Computer will be updated
+        And the user will be navigated back to the homepage
+        And the number of computers found will increase by 0
+        And the computer is updated on the table with the correct information
+        And delete computer cleanup
+
+        Examples:
+        |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
+        |BBRC_edit_Test_1|null           |null             |null              |
 #        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
 #        |BBRC_edit_Test_3|2002-04-30     |2002-04-30       |null              |
 #        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |

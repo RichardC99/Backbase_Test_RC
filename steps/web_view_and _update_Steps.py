@@ -25,7 +25,7 @@ def step_impl(context):
 @then('the Computer will be updated')
 def step_impl(context):
     page = Homepage(context.browser)
-    assert page.computer_created(context.computer_name), "Computer not updated"
+    assert page.computer_updated(context.computer_name), "Computer not updated"
 
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
