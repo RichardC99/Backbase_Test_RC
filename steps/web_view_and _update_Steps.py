@@ -15,6 +15,47 @@ def step_impl(context):
     context.execute_steps('Given the User navigates to the Update Computer screen')
 
 
+
+@given('the User updates {computer_name} computer name')
+def step_impl(context, computer_name):
+    context.page = CreateAndEditPage(context.browser)
+    context.computer_name = computer_name
+    if computer_name != "null":
+        context.page.enter_computer(computer_name)
+    else:
+        pass
+
+
+@given('the user updates {date} {format} date')
+def step_impl(context, date, format):
+    page = CreateAndEditPage(context.browser)
+    if format == "introduced":
+            if date != "null":
+                context.updated_intro_date = date
+                page.enter_intro_date(date)
+            else:
+                context.updated_intro_date = context.intro_date
+                pass
+    elif format == "discontinued":
+            if date != "null":
+                context.updated_discon_date = date
+                page.enter_disc_date(date)
+            else:
+                context.updated_discon_date = context.discon_date
+                pass
+
+
+@given('the user updates {company} company')
+def step_impl(context, company):
+    if company != "null":
+        context.updated_company = company
+        page = CreateAndEditPage(context.browser)
+        page.select_company(company)
+    else:
+        context.updatd_company = company
+        pass
+
+
 @then('the user will be navigated to "Edit_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
@@ -30,9 +71,9 @@ def step_impl(context):
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
     name = context.computer_name
-    intro_date = context.intro_date
-    discon_date = context.discon_date
-    company = context.company
+    intro_date = context.updated_intro_date
+    discon_date = context.updated_discon_date
+    company = context.updated_company
 
     page = Homepage(context.browser)
     page.search_for_computer(name)
@@ -42,7 +83,7 @@ def step_impl(context):
 
 
 @then('the number of computers found will stay the same')
-def step_impl(context, n):
+def step_impl(context):
     page = Homepage(context.browser)
     no_computers = context.computer_count
 
