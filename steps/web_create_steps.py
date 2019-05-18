@@ -19,16 +19,19 @@ def step_impl(context, computer_name):
 @given('the user enters {date} {format} date')
 def step_impl(context, date, format):
     page = CreateAndEditPage(context.browser)
-    if date != "null":
-        if format == "introduced":
+    if format == "introduced":
             context.intro_date = date
-            page.enter_intro_date(date)
-        else:
+            if date != "null":
+                page.enter_intro_date(date)
+            else:
+                pass
+    elif format == "discontinued":
             context.discon_date = date
-            page.enter_disc_date(date)
-    else:
-        context.intro_date = date
-        context.discon_date = date
+            if date != "null":
+                page.enter_disc_date(date)
+            else:
+                pass
+
 
 @given('the user selects {company} company')
 def step_impl(context, company):
@@ -40,11 +43,11 @@ def step_impl(context, company):
         pass
 
 
-
 @when('the user clicks Save_this_computer')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
     page.click_Create()
+
 
 @when('the user clicks cancel')
 def step_impl(context):
@@ -53,37 +56,44 @@ def step_impl(context):
 
 # Thens
 
+
 @then('the user will be navigated to "Create_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
     assert page.isat_Createpage(), "Not at add Computer page"
+
 
 @then('the user will be navigated back to the homepage')
 def step_impl(context):
     page = Homepage(context.browser)
     assert page.isat_homepage(), "not at homepage"
 
+
 @then('the user will remain at the add computer screen')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
     assert page.isat_Createpage(), "Not at add computer page"
+
 
 @then('the Computer will be created')
 def step_impl(context):
     page = Homepage(context.browser)
     assert page.computer_created(context.computer_name), "Computer not created"
 
+
 @then('the computer has been added to the table with the correct information')
 def step_impl(context):
     name = context.computer_name
     intro_date = context.intro_date
+    print(context.intro_date)
+    print(intro_date)
     discon_date = context.discon_date
     company = context.company
 
     page = Homepage(context.browser)
     page.search_for_computer(name)
-    assert page.computer_has_correct_date(name, intro_date, "intro"), "date is incorrect"
-    assert page.computer_has_correct_date(name, discon_date, "dison"), "date is incorrect"
+    assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
+    assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
     assert page.computer_has_correct_company(name, company)
     
 

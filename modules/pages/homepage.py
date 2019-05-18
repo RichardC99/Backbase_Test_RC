@@ -55,12 +55,13 @@ class Homepage(Basepage):
 
 
     def computer_has_correct_date(self, name, date, date_column):
+        print(date_column)
+        print(date)
 
         if date == "null":
             expected_date = date.replace("null", "-")
         else:
             expected_date = datetime.datetime.strptime(date, "%Y-%m-%d").strftime("%d %b %Y")
-
 
         if date_column == "intro":
             column = ComputerTableLocators.intro_date
@@ -69,7 +70,8 @@ class Homepage(Basepage):
 
         table = self.get_table_data()
         table_date = table.loc[name, column]
-
+        print(date_column)
+        print(table_date)
         if table_date == expected_date:
             return True
         else:

@@ -30,8 +30,7 @@ def step_impl(context):
 @then('the computer will not have been added to the table')
 def step_impl(context):
     page = Homepage(context.browser)
-    page.enter_into_filter_by_name_input(context.computer_name)
-    page.click_filter_by_name_button()
+    page.search_for_computer(context.computer_name)
     assert page.computer_not_found(), "computer not deleted"
 
 
