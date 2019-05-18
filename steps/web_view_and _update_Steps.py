@@ -52,7 +52,7 @@ def step_impl(context, company):
         page = CreateAndEditPage(context.browser)
         page.select_company(company)
     else:
-        context.updatd_company = company
+        context.updated_company = company
         pass
 
 
