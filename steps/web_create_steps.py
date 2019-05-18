@@ -4,14 +4,6 @@ from modules.pages.homepage import Homepage
 from modules.helpers import AbstractJanitor
 
 
-@given('the User navigates to the Update Computer screen')
-def step_impl(context):
-    page = Homepage(context.browser)
-    context.computer_count = page.computer_count()
-    page.search_for_computer(context.computer_name)
-    page.click_on_computer_name(context.computer_name)
-
-
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
     context.page = CreateAndEditPage(context.browser)

@@ -1,8 +1,13 @@
 from behave import given
 from modules.pages.homepage import Homepage
-from modules.pages.create_and_edit_page import CreateAndEditPage
-from time import sleep
 
+
+@given('the User navigates to the Update Computer screen')
+def step_impl(context):
+    page = Homepage(context.browser)
+    context.computer_count = page.computer_count()
+    page.search_for_computer(context.computer_name)
+    page.click_on_computer_name(context.computer_name)
 
 
 @given('A user has navigated to the BB_Test_Webpage')
