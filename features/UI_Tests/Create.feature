@@ -38,6 +38,7 @@ Feature: Computer can be added, including validation
         And the user selects <Company> company
         When the user clicks Save_this_computer
         Then the correct error message will appear <error>
+        And the user will remain on the add computer screen
 
 #
         Examples:

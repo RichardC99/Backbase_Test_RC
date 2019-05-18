@@ -18,6 +18,7 @@ class HomePageLocators():
 
     nothing_to_display = (By.CSS_SELECTOR, "#main > div.well > em")
 
+
 class ComputerTableLocators():
 
     table = (By.XPATH, "//*[@id=\"main\"]/table")
@@ -31,9 +32,7 @@ class ComputerTableLocators():
     company = "Company"
 
 
-
 class CreateAndEditPageLocators:
-    add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
     computer_name_input = (By.ID, "name")
 
@@ -49,13 +48,16 @@ class CreateAndEditPageLocators:
 
     Edit_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
-    computer_name_required = (By.XPATH, "//*[@id=\"main\"]/form/fieldset/div[1]")
-
-    invalid_intro_date = (By.XPATH, "//*[@id=\"main\"]/form/fieldset/div[2]")
-
-    invalid_dscon_date = (By.XPATH, "//*[@id=\"main\"]/form/fieldset/div[3]")
-
     cancel_button = (By.XPATH, "//*[@id=\"main\"]/form/div/a")
+
+    add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
+
+    computer_name_required = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(1) > div")
+
+    invalid_intro_date = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(2) > div")
+
+    invalid_dscon_date = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(3) > div)")
+
 
 
 

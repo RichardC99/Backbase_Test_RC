@@ -14,14 +14,11 @@ class Homepage(Basepage):
         self.click_element(*HomePageLocators.add_computer_button)
 
     def click_on_computer_name(self, name):
-        link = self.click_element(By.LINK_TEXT, name)
+       self.click_element(By.LINK_TEXT, name)
 
-    def click_filter_by_name_button(self):
-        self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
-
-    def enter_into_filter_by_name_input(self, value):
+    def search_for_computer(self, value):
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
-
+        self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
     def computer_not_found(self):
         text = self.find_element(*HomePageLocators.nothing_to_display).text
         if text == "Nothing to display":

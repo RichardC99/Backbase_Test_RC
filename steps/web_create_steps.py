@@ -55,12 +55,15 @@ def step_impl(context):
 @then('the user will be navigated to "Create_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
-    assert page.isat_Createpage(), "Not at ADD Computer page"
+    assert page.isat_Createpage(), "Not at add Computer page"
 
 @then('the user will be navigated back to the homepage')
 def step_impl(context):
     page = Homepage(context.browser)
-    assert page.isat_homepage()
+    assert page.isat_homepage(), "not at homepage"
+
+@then('the user will remain on the add computer screen')
+def step_impl(context):
 
 @then('the Computer will be created')
 def step_impl(context):
