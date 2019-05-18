@@ -1,5 +1,6 @@
 from behave import given
 from modules.pages.homepage import Homepage
+from modules.pages.create_and_edit_page import CreateAndEditPage
 
 
 @given('the User navigates to the Update Computer screen')
@@ -23,4 +24,13 @@ def step_impl(context):
     page.click_add_computer_button()
 
 
+@given('computer {computer_name} does not exist')
+def step_impl(context, computer_name):
+    page = Homepage(context.browser)
+    page2 = CreateAndEditPage(context.browser)
+    while page.confirm_computer_present(computer_name):
+        page.click_on_computer_name(computer_name)
+        page2.click_delete_computer()
+        if not (page.confirm_computer_present(computer_name)):
+            break
 
