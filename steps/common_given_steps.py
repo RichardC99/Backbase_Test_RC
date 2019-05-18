@@ -1,18 +1,9 @@
 from behave import given
 from modules.pages.homepage import Homepage
 from modules.pages.create_and_edit_page import CreateAndEditPage
+from time import sleep
 
 
-@given('A user has created a computer with known details and navigated to the edit screen')
-def step_impl(context):
-    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
-    context.execute_steps('Given add a new computer is clicked')
-    context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
-    context.execute_steps('Given the user enters 1986-04-04 introduced date')
-    context.execute_steps('Given the user enters 2000-07-07 discontinued date')
-    context.execute_steps('Given the user selects Apple Inc. company')
-    context.execute_steps('When the user clicks Save_this_computer')
-    context.execute_steps('the User navigates to the Update Computer screen')
 
 @given('A user has navigated to the BB_Test_Webpage')
 def step_impl(context):

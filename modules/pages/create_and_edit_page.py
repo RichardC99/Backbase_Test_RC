@@ -31,7 +31,7 @@ class CreateAndEditPage(Basepage):
         return self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
     def isat_Editpage(self):
-        return self.element_displayed(*CreateAndEditPageLocators.add_computer_title).text
+        return self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
     def invalid_name_error(self):
         return self.element_displayed(*CreateAndEditPageLocators.computer_name_required)

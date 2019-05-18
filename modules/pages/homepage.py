@@ -3,6 +3,7 @@ from modules.pages.basepage import Basepage
 from Locators.locators import HomePageLocators, ComputerTableLocators
 import pandas as pd
 import datetime
+from time import sleep
 
 
 class Homepage(Basepage):

@@ -17,15 +17,14 @@ def step_impl(context,incdec, n):
     assert page.computer_count() == (no_computers + n), "computer count not changed"
 
 
-@then('Delete computer cleanup')
-def step_impl(context):
-    page = Homepage(context.browser)
-    page.click_on_computer_name(context.computer_name)
-    page = CreateAndEditPage(context.browser)
-    page.click_delete_computer()
-
-
 @then('the user will be navigated back to the homepage')
 def step_impl(context):
     page = Homepage(context.browser)
     assert page.isat_homepage(), "not at homepage"
+
+@then('Delete computer cleanup')
+def step_impl(context):
+     page = Homepage(context.browser)
+     page.search_for_computer(context.computer_name)
+     page = CreateAndEditPage(context.browser)
+     page.click_delete_computer()
