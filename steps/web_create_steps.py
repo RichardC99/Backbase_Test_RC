@@ -27,7 +27,8 @@ def step_impl(context, date, format):
             context.discon_date = date
             page.enter_disc_date(date)
     else:
-        pass
+        context.intro_date = date
+        context.discon_date = date
 
 @given('the user selects {company} company')
 def step_impl(context, company):

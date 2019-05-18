@@ -56,7 +56,7 @@ class CreateAndEditPageLocators:
 
     invalid_intro_date = (By.XPATH, ".//*[@class='clearfix error']//*[@for='introduced']")
 
-    invalid_dscon_date = (By.XPATH, ".//*[@class='clearfix error']//*[@for='discontinued'")
+    invalid_dscon_date = (By.XPATH, ".//*[@class='clearfix error']//*[@for='discontinued']")
 
 
 
