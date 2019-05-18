@@ -17,7 +17,6 @@ def step_impl(context, computer_name):
     context.execute_steps('Given add a new computer is clicked')
 
 
-
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):
     context.page = CreateAndEditPage(context.browser)
