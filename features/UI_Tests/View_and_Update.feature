@@ -3,11 +3,11 @@ Feature: Computer can be updated, including validation
 
     Background:Navigate to edit Computer page
         Given A user has created a computer with known details and navigated to the edit screen
-
-    Scenario: User can open edit computer screeen
-
-        Then the user will be navigated to "Edit_Computer" page
-        And delete computer cleanup
+#
+#    Scenario: User can open edit computer screeen
+#
+#        Then the user will be navigated to "Edit_Computer" page
+#        And delete computer cleanup
 
     Scenario Outline: User can Edit computer with valid data
         Given the User updates <Computer_name> computer name

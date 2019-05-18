@@ -12,9 +12,7 @@ def step_impl(context,incdec, n):
         no_computers = context.computer_count
     else:
         n = int(n)
-        print(n)
         no_computers = context.no_of_computers_start
-        print(no_computers)
 
     assert page.computer_count() == (no_computers + n), "computer count not changed"
 

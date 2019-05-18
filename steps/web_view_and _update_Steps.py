@@ -19,10 +19,11 @@ def step_impl(context):
 @given('the User updates {computer_name} computer name')
 def step_impl(context, computer_name):
     context.page = CreateAndEditPage(context.browser)
-    context.computer_name = computer_name
     if computer_name != "null":
+        context.updated_computer_name = computer_name
         context.page.enter_computer(computer_name)
     else:
+        context.updated_computer_name = context.computer_name
         pass
 
 
@@ -52,7 +53,8 @@ def step_impl(context, company):
         page = CreateAndEditPage(context.browser)
         page.select_company(company)
     else:
-        context.updated_company = company
+        context.updated_company = context.company
+        print(context.updated_company)
         pass
 
 

@@ -66,8 +66,6 @@ def setup_browser(context):
     driver_path = getattr(config, '{}_driver_path'.format(driver), '')
     headless = getattr(config, 'headless', False)
 
-    print(f"setting up new {driver} browser in headless mode {headless}")
-
     if "chrome" == driver:
         options = ChromeOptions()
         options.add_argument("--window-position=2000,0")
