@@ -7,12 +7,23 @@ from time import sleep
 @given('A user has created a computer with known details for delete')
 def step_impl(context):
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
-    context.execute_steps('Given add a new computer is clicked')
-    context.execute_steps('Given the User enters BB_Delete_computer_test computer name')
-    context.execute_steps('Given the user enters null introduced date')
-    context.execute_steps('Given the user enters null discontinued date')
-    context.execute_steps('Given the user selects null company')
-    context.execute_steps('When the user clicks Save_this_computer')
+    page = Homepage(context.browser)
+    if page.confirm_computer_present("BB_computer_for_edit_test"):
+        context.computer_name = "BB_computer_for_edit_test"
+        context.intro_date = "1986-04-04"
+        context.discon_date = "2000-07-07"
+        context.company = "Apple Inc."
+        context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+
+    else:
+        context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+        context.execute_steps('Given add a new computer is clicked')
+        context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
+        context.execute_steps('Given the user enters 1986-04-04 introduced date')
+        context.execute_steps('Given the user enters 2000-07-07 discontinued date')
+        context.execute_steps('Given the user selects Apple Inc. company')
+        context.execute_steps('When the user clicks Save_this_computer')
+
 
 
 @when('the Delete Computer button is clicked')
