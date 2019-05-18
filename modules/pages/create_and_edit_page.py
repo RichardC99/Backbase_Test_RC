@@ -10,6 +10,7 @@ class CreateAndEditPage(Basepage):
         self.enter_text(date, *CreateAndEditPageLocators.introduced_date)
 
     def enter_disc_date(self, date):
+        self.clear_input(*CreateAndEditPageLocators.discontinued_date)
         self.enter_text(date, *CreateAndEditPageLocators.discontinued_date)
 
     def select_company(self, company):
