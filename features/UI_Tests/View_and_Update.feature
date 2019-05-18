@@ -13,7 +13,7 @@ Feature: Computer can be updated, including validation
         Given the User updates <Computer_name> computer name
         And the user updates <Introduced_Date> introduced date
         And the user updates <Discontinued_Date> discontinued date
-        And the user selects <Company> company
+        And the user updates <Company> company
         When the user clicks Save_this_computer
         Then the Computer will be updated
         And the user will be navigated back to the homepage

@@ -54,7 +54,6 @@ def step_impl(context, company):
         page.select_company(company)
     else:
         context.updated_company = context.company
-        print(context.updated_company)
         pass
 
 
@@ -68,7 +67,7 @@ def step_impl(context):
 @then('the Computer will be updated')
 def step_impl(context):
     page = Homepage(context.browser)
-    assert page.computer_updated(context.computer_name), "Computer not updated"
+    assert page.computer_updated(context.updated_computer_name), "Computer not updated"
 
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
@@ -81,6 +80,7 @@ def step_impl(context):
     page.search_for_computer(name)
     assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
     assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
+    print(company)
     assert page.computer_has_correct_company(name, company)
 
 

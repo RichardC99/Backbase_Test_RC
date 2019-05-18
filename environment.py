@@ -1,5 +1,4 @@
 from selenium import webdriver
-from selenium.common.exceptions import NoSuchElementException, ElementNotVisibleException
 from selenium.webdriver.chrome.options import Options as ChromeOptions
 from selenium.webdriver.firefox.options import Options as FirefoxOptions
 import os
@@ -13,18 +12,14 @@ def before_feature(context, feature):
 
 
 def before_scenario(context, scenario):
-    # only launch a browser if tag @web and if there isn't one there already
-    # this is needed in case browser was closed from a preceding failing scenario
     if "web" in context.tags:
         if not getattr(context, 'browser', None):
             setup_browser(context)
 
-    # create an empty list of janitors ready for test steps to append specific clean up janitors to
     context.janitors = []
 
 
 def after_feature(context, feature):
-    # if there is a browser object close it
     if getattr(context, 'browser', None):
         close_browser(context)
 
@@ -32,7 +27,6 @@ def after_feature(context, feature):
 def after_scenario(context, scenario):
 
     try:
-        # if there is a browser object for a failing scenario grab a screenshot
         if getattr(context, 'browser', None):
             if scenario.status == "failed":
                 if not os.path.exists("failed_scenarios_screenshots"):
@@ -45,7 +39,6 @@ def after_scenario(context, scenario):
 
                 context.browser.save_screenshot(file_path)
 
-            # close browser so clean for next scenario
             close_browser(context)
     except Exception as e:
         print(f"exception cleaning up after web scenario")
@@ -54,7 +47,6 @@ def after_scenario(context, scenario):
     for janitor in context.janitors:
         print("Janitor for scenario from list, calling clean up")
         try:
-            # if there is an exception running a janitor catch it and continue with the rest
             janitor.clean_up()
         except Exception as e:
             print(f"exception running janitor")
@@ -75,9 +67,10 @@ def setup_browser(context):
 
     elif "firefox" == driver:
         options = FirefoxOptions()
-        if headless:
-            options.add_argument('--headless')
-        context.browser = webdriver.Firefox(executable_path=driver_path, firefox_options=options)
+        options.add_argument("--window-position=2000,0")
+
+
+
     else:
         raise ValueError(f"invalid browser specified [{driver}]")
 

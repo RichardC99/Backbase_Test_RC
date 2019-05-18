@@ -16,6 +16,7 @@ class Basepage():
         self.browser.find_element(*element).click()
 
     def enter_text(self, text, *element):
+        self.browser.find_element(*element).clear()
         self.browser.find_element(*element).send_keys(text)
 
     def find_value(self, *element):

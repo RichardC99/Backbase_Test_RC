@@ -35,7 +35,6 @@ class Homepage(Basepage):
         text = self.browser.find_element(*HomePageLocators.computer_count).text
         text = text.replace(" computers found", "")
         text = text.replace(",", "")
-        print(text)
 
         return int(text)
 
@@ -58,6 +57,8 @@ class Homepage(Basepage):
 
     def computer_updated(self, computer_name):
         text = self.find_value(*HomePageLocators.computer_updated_message).text
+        print(text)
+        print(computer_name)
 
         if text == f"Done! Computer {computer_name} has been updated":
             return True
