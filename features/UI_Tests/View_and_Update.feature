@@ -37,7 +37,8 @@ Feature: Computer can be updated, including validation
 
 
     Scenario Outline: User cannot edit a computer with invalid data
-        Given the User updates <Computer_name> computer name
+        Given add a new computer is clicked
+        And the User updates <Computer_name> computer name
         And the user updates <Introduced_Date> introduced date
         And the user updates <Discontinued_Date> discontinued date
         And the user updates <Company> company

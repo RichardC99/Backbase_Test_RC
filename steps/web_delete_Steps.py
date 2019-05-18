@@ -6,7 +6,8 @@ from time import sleep
 
 @given('A user has created a computer with known details for deletion')
 def step_impl(context):
-    computer_name = "BB_computer_for_delete_test"
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    computer_name = "BB_computer_for_delete_testcls"
     page = Homepage(context.browser)
     page2 = CreateAndEditPage(context.browser)
     while page.confirm_computer_present(computer_name):
@@ -15,7 +16,6 @@ def step_impl(context):
         if not (page.confirm_computer_present(computer_name)):
             break
 
-    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     context.execute_steps('Given add a new computer is clicked')
     context.execute_steps('Given the User enters BB_computer_for_delete_test computer name')
     context.execute_steps('Given the user enters 1986-04-04 introduced date')
