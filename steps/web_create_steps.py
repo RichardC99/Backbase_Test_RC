@@ -3,6 +3,25 @@ from modules.pages.create_and_edit_page import CreateAndEditPage
 from modules.pages.homepage import Homepage
 from modules.helpers import AbstractJanitor
 
+@given('computer <computer_name> does not exist')
+def step_impl(context, computer_name):
+    page = Homepage(context.browser)
+    page2 = CreateAndEditPage(context.browser)
+    while page.confirm_computer_present(computer_name):
+        page.click_on_computer_name(computer_name)
+        page2.click_delete_computer()
+        if not (page.confirm_computer_present(computer_name)):
+            break
+
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    context.execute_steps('Given add a new computer is clicked')
+    context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
+    context.execute_steps('Given the user enters 1986-04-04 introduced date')
+    context.execute_steps('Given the user enters 2000-07-07 discontinued date')
+    context.execute_steps('Given the user selects Apple Inc. company')
+    context.execute_steps('When the user clicks Save_this_computer')
+    context.execute_steps('Given the User navigates to the Update Computer screen')
+
 
 @given('the User enters {computer_name} computer name')
 def step_impl(context, computer_name):

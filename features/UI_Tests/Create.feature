@@ -3,12 +3,14 @@
 #
 #    Background: Navigate to Create Computer page
 #        Given A user has navigated to the BB_Test_Webpage
-#        And add a new computer is clicked
+#
 #
 ##    Scenario: User can open Create Computer screen
 ##        Then the user will be navigated to "Create_Computer" page
 #
 #    Scenario Outline: User can create computer with valid data
+         And computer <computer_name> does not exist
+         And add a new computer is clicked
 #        Given the User enters <Computer_name> computer name
 #        And the user enters <Introduced_Date> introduced date
 #        And the user enters <Discontinued_Date> discontinued date
@@ -32,6 +34,7 @@
 #
 #
 #    Scenario Outline: User cannot create a computer with invalid data
+#        And add a new computer is clicked
 #        Given the User enters <Computer_name> computer name
 #        And the user enters <Introduced_Date> introduced date
 #        And the user enters <Discontinued_Date> discontinued date
@@ -58,7 +61,7 @@
 #        |null                      |2008/01/01     |29-02-2008       |null              |all_data_invalid          |
 #
 #    Scenario: User can cancel adding a computer
-#
+#        And add a new computer is clicked
 #        Given the User enters Cancel_Button computer name
 #        And the user enters 2008-01-01 introduced date
 #        And the user enters 2020-01-01 discontinued date
