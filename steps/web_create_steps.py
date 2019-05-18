@@ -62,8 +62,10 @@ def step_impl(context):
     page = Homepage(context.browser)
     assert page.isat_homepage(), "not at homepage"
 
-@then('the user will remain on the add computer screen')
+@then('the user will remain at the add computer screen')
 def step_impl(context):
+    page = CreateAndEditPage(context.browser)
+    assert page.isat_Createpage(), "Not at add computer page"
 
 @then('the Computer will be created')
 def step_impl(context):
@@ -78,8 +80,7 @@ def step_impl(context):
     company = context.company
 
     page = Homepage(context.browser)
-    page.enter_into_filter_by_name_input(name)
-    page.click_filter_by_name_button()
+    page.search_for_computer(name)
     assert page.computer_has_correct_date(name, intro_date, "intro"), "date is incorrect"
     assert page.computer_has_correct_date(name, discon_date, "dison"), "date is incorrect"
     assert page.computer_has_correct_company(name, company)
@@ -89,7 +90,7 @@ def step_impl(context):
 def step_impl(context, error):
     page = CreateAndEditPage(context.browser)
     if error == "name_required":
-        assert page.invald_name_error(), "error message not present"
+        assert page.invalid_name_error(), "error message not present"
 
     elif error == "invalid_intro_date_format":
         assert page.invalid_intro_date_format(), "error message not present"
@@ -97,7 +98,10 @@ def step_impl(context, error):
     elif error == "invalid_discon_date_format":
         assert page.invalid_discon_date_format(), "error message not present"
 
-    
+    elif error == "all_data_invalid":
+        assert page.invalid_name_error(), "error message not present"
+        assert page.invalid_intro_date_format(), "error message not present"
+        assert page.invalid_discon_date_format(), "error message not present"
 
 # def cleanup(context):
 #     page = Homepage(context.browser)

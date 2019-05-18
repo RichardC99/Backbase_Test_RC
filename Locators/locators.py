@@ -52,11 +52,11 @@ class CreateAndEditPageLocators:
 
     add_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")
 
-    computer_name_required = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(1) > div")
+    computer_name_required = (By.XPATH, ".//*[@class='clearfix error']//*[@for='name']")
 
-    invalid_intro_date = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(2) > div")
+    invalid_intro_date = (By.XPATH, ".//*[@class='clearfix error']//*[@for='introduced']")
 
-    invalid_dscon_date = (By.CSS_SELECTOR, "#main > form > fieldset > div:nth-child(3) > div)")
+    invalid_dscon_date = (By.XPATH, ".//*[@class='clearfix error']//*[@for='discontinued'")
 
 
 

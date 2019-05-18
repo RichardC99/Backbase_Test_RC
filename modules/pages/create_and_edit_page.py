@@ -28,15 +28,10 @@ class CreateAndEditPage(Basepage):
         self.click_element(*CreateAndEditPageLocators.cancel_button)
 
     def isat_Createpage(self):
-        self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
+        return self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
     def isat_Editpage(self):
-        text = self.find_element(*CreateAndEditPageLocators.add_computer_title).text
-
-        if text == "Edit a computer":
-            return True
-        else:
-            return False
+        return self.element_displayed(*CreateAndEditPageLocators.add_computer_title).text
 
     def invalid_name_error(self):
         return self.element_displayed(*CreateAndEditPageLocators.computer_name_required)
