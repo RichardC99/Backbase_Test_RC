@@ -4,8 +4,9 @@ from modules.pages.create_and_edit_page import CreateAndEditPage
 from time import sleep
 
 
-@given('computer BB_computer_for_delete_test does not exist')
-def step_impl(context, computer_name):
+@given('A user has created a computer with known details for deletion')
+def step_impl(context):
+    computer_name = "BB_computer_for_delete_test"
     page = Homepage(context.browser)
     page2 = CreateAndEditPage(context.browser)
     while page.confirm_computer_present(computer_name):

@@ -5,7 +5,14 @@ from modules.pages.homepage import Homepage
 
 @given('A user has created a computer with known details and navigated to the edit screen')
 def step_impl(context):
-
+      def step_impl(context, computer_name):
+        page = Homepage(context.browser)
+        page2 = CreateAndEditPage(context.browser)
+        while page.confirm_computer_present(computer_name):
+            page.click_on_computer_name(computer_name)
+            page2.click_delete_computer()
+            if not (page.confirm_computer_present(computer_name)):
+                break
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     page = Homepage(context.browser)
     if page.confirm_computer_present("BB_computer_for_edit_test"):
