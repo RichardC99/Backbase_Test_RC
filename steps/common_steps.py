@@ -3,6 +3,15 @@ from modules.pages.homepage import Homepage
 from modules.pages.create_and_edit_page import CreateAndEditPage
 
 
+@given('A user has created a computer with known details')
+def step_impl(context):
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    context.execute_steps('Given add a new computer is clicked')
+    context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
+    context.execute_steps('Given the user enters null introduced date')
+    context.execute_steps('Given the user enters null discontinued date')
+    context.execute_steps('Given the user selects null company')
+    context.execute_steps('When the user clicks Save_this_computer')
 
 @given('A user has navigated to the BB_Test_Webpage')
 def step_impl(context):

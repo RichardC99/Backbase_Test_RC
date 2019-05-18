@@ -18,7 +18,7 @@ class Basepage():
     def enter_text(self, text, *element):
         self.browser.find_element(*element).send_keys(text)
 
-    def find_element(self, *element):
+    def find_value(self, *element):
        return self.browser.find_element(*element)
 
     def select_dropdown_by_text(self, value, *element):

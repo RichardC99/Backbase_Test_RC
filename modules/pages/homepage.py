@@ -19,8 +19,9 @@ class Homepage(Basepage):
     def search_for_computer(self, value):
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
+
     def computer_not_found(self):
-        text = self.find_element(*HomePageLocators.nothing_to_display).text
+        text = self.find_valuet(*HomePageLocators.nothing_to_display).text
         if text == "Nothing to display":
             return True
         else:
@@ -38,7 +39,7 @@ class Homepage(Basepage):
 
     def computer_created(self, computer_name):
 
-        text = self.find_element(*HomePageLocators.computer_created_message).text
+        text = self.find_value(*HomePageLocators.computer_created_message).text
 
         if text == f"Done! Computer {computer_name} has been created":
             return True
@@ -46,18 +47,14 @@ class Homepage(Basepage):
             return False
 
     def computer_deleted(self):
-        text = self.find_element(*HomePageLocators.computer_deleted_message).text
+        text = self.find_value(*HomePageLocators.computer_deleted_message).text
 
         if text == "Done! Computer has been deleted":
             return True
         else:
             return False
 
-
     def computer_has_correct_date(self, name, date, date_column):
-        print(date_column)
-        print(date)
-
         if date == "null":
             expected_date = date.replace("null", "-")
         else:
@@ -70,8 +67,7 @@ class Homepage(Basepage):
 
         table = self.get_table_data()
         table_date = table.loc[name, column]
-        print(date_column)
-        print(table_date)
+
         if table_date == expected_date:
             return True
         else:
@@ -89,16 +85,6 @@ class Homepage(Basepage):
             return True
         else:
             return False
-
-
-
-
-
-
-
-
-
-
 
     def get_table_data(self):
         tbl = self.browser.find_element(*ComputerTableLocators.table).get_attribute('outerHTML')

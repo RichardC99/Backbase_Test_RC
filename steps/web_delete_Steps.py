@@ -4,7 +4,7 @@ from modules.pages.create_and_edit_page import CreateAndEditPage
 from time import sleep
 
 
-@given('A user has created a computer with known details')
+@given('A user has created a computer with known details for delete')
 def step_impl(context):
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     context.execute_steps('Given add a new computer is clicked')
