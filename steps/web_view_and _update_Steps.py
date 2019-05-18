@@ -5,26 +5,37 @@ from modules.pages.homepage import Homepage
 
 @given('A user has created a computer with known details and navigated to the edit screen')
 def step_impl(context):
+
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
-    context.execute_steps('Given add a new computer is clicked')
-    context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
-    context.execute_steps('Given the user enters 1986-04-04 introduced date')
-    context.execute_steps('Given the user enters 2000-07-07 discontinued date')
-    context.execute_steps('Given the user selects Apple Inc. company')
-    context.execute_steps('When the user clicks Save_this_computer')
-    context.execute_steps('Given the User navigates to the Update Computer screen')
+    page = Homepage(context.browser)
+    if page.confirm_computer_present("BB_computer_for_edit_test"):
+        context.computer_name ="BB_computer_for_edit_test"
+        context.intro_date = "1986-04-04"
+        context.discon_date = "2000-07-07"
+        context.company = "Apple Inc."
+        context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+        context.execute_steps('Given the User navigates to the Update Computer screen')
+    else:
+        context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+        context.execute_steps('Given add a new computer is clicked')
+        context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
+        context.execute_steps('Given the user enters 1986-04-04 introduced date')
+        context.execute_steps('Given the user enters 2000-07-07 discontinued date')
+        context.execute_steps('Given the user selects Apple Inc. company')
+        context.execute_steps('When the user clicks Save_this_computer')
+        context.execute_steps('Given the User navigates to the Update Computer screen')
 
 
 
 @given('the User updates {computer_name} computer name')
 def step_impl(context, computer_name):
-    context.page = CreateAndEditPage(context.browser)
+    page = CreateAndEditPage(context.browser)
     if computer_name != "null":
         context.updated_computer_name = computer_name
-        context.page.enter_computer(computer_name)
+        page.enter_computer(computer_name)
     else:
         context.updated_computer_name = context.computer_name
-        pass
+        page.enter_computer(" ")
 
 
 @given('the user updates {date} {format} date')
@@ -72,7 +83,6 @@ def step_impl(context):
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
     name = context.updated_computer_name
-    print(name)
     intro_date = context.updated_intro_date
     discon_date = context.updated_discon_date
     company = context.updated_company
@@ -81,7 +91,6 @@ def step_impl(context):
     page.search_for_computer(name)
     assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
     assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
-    print(company)
     assert page.computer_has_correct_company(name, company)
 
 
@@ -96,7 +105,17 @@ def step_impl(context):
 @then('Delete computer cleanup edit')
 def step_impl(context):
      page = Homepage(context.browser)
-     page.search_for_computer(context.computer_name)
+     page.goto_home_page()
+     page.search_for_computer(context.updated_computer_name)
      page.click_on_computer_name(context.updated_computer_name)
+     page = CreateAndEditPage(context.browser)
+     page.click_delete_computer()
+
+@then('Delete computer cleanup validation')
+def step_impl(context):
+     page = Homepage(context.browser)
+     page.goto_home_page()
+     page.search_for_computer(context.computer_name)
+     page.click_on_computer_name(context.computer_name)
      page = CreateAndEditPage(context.browser)
      page.click_delete_computer()

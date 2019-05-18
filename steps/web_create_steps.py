@@ -39,6 +39,16 @@ def step_impl(context, date, format):
                 pass
 
 
+@given('the user selects {company} company')
+def step_impl(context, company):
+    context.company = company
+    if company != "null":
+        page = CreateAndEditPage(context.browser)
+        page.select_company(company)
+    else:
+        pass
+
+
 @then('the user will be navigated to "Create_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
@@ -70,24 +80,6 @@ def step_impl(context):
     assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
     assert page.computer_has_correct_company(name, company)
     
-
-@then('the correct error message will appear {error}')
-def step_impl(context, error):
-    page = CreateAndEditPage(context.browser)
-    if error == "name_required":
-        assert page.invalid_name_error(), "error message not present"
-
-    elif error == "invalid_intro_date_format":
-        assert page.invalid_intro_date_format(), "error message not present"
-
-    elif error == "invalid_discon_date_format":
-        assert page.invalid_discon_date_format(), "error message not present"
-
-    elif error == "all_data_invalid":
-        assert page.invalid_name_error(), "error message not present"
-        assert page.invalid_intro_date_format(), "error message not present"
-        assert page.invalid_discon_date_format(), "error message not present"
-
 
 @then('Delete computer cleanup create')
 def step_impl(context):

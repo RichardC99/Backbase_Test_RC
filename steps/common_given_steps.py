@@ -18,11 +18,4 @@ def step_impl(context):
     page.click_add_computer_button()
 
 
-@given('the user selects {company} company')
-def step_impl(context, company):
-    context.company = company
-    if company != "null":
-        page = CreateAndEditPage(context.browser)
-        page.select_company(company)
-    else:
-        pass
+

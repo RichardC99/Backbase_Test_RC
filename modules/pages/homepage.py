@@ -20,7 +20,6 @@ class Homepage(Basepage):
     def search_for_computer(self, value):
         self.clear_input(*HomePageLocators.filter_by_name_input)
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
-        print(value)
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
 
     def computer_not_found(self):
@@ -106,7 +105,11 @@ class Homepage(Basepage):
         table = table.set_index(ComputerTableLocators.computer_name, drop=False)
         return table
 
-
+    def confirm_computer_present(self, name):
+        self.clear_input(*HomePageLocators.filter_by_name_input)
+        self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(name)
+        self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
+        return self.elements_displayed(By.LINK_TEXT, name)
 
 
 

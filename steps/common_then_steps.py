@@ -22,3 +22,20 @@ def step_impl(context):
     page = Homepage(context.browser)
     assert page.isat_homepage(), "not at homepage"
 
+
+@then('the correct error message will appear {error}')
+def step_impl(context, error):
+    page = CreateAndEditPage(context.browser)
+    if error == "name_required":
+        assert page.invalid_name_error(), "error message not present"
+
+    elif error == "invalid_intro_date_format":
+        assert page.invalid_intro_date_format(), "error message not present"
+
+    elif error == "invalid_discon_date_format":
+        assert page.invalid_discon_date_format(), "error message not present"
+
+    elif error == "all_data_invalid":
+        assert page.invalid_name_error(), "error message not present"
+        assert page.invalid_intro_date_format(), "error message not present"
+        assert page.invalid_discon_date_format(), "error message not present"

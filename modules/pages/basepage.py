@@ -37,7 +37,13 @@ class Basepage():
             return False
 
 
+    def elements_displayed(self, *element):
+        element = self.browser.find_elements(*element)
 
+        if not element:
+            return False
+        else:
+            return True
 
 
 
