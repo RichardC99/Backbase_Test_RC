@@ -4,7 +4,7 @@ from modules.pages.homepage import Homepage
 from modules.helpers import AbstractJanitor
 
 
-@given('computer <computer_name> does not exist')
+@given('computer {computer_name} does not exist')
 def step_impl(context, computer_name):
     page = Homepage(context.browser)
     page2 = CreateAndEditPage(context.browser)
@@ -13,8 +13,6 @@ def step_impl(context, computer_name):
         page2.click_delete_computer()
         if not (page.confirm_computer_present(computer_name)):
             break
-
-    context.execute_steps('Given add a new computer is clicked')
 
 
 @given('the User enters {computer_name} computer name')
