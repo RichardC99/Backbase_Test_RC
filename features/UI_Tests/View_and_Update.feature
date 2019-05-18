@@ -1,8 +1,7 @@
 Feature: Computer can be updated, including validation
 
     Background:Navigate to edit Computer page
-        Given A user has created a computer with known details
-        And The user clicks on the computer name
+        Given A user has created a computer with known details and navigated to the edit screen
 
     Scenario: User can open edit computer screeen
 
@@ -14,10 +13,10 @@ Feature: Computer can be updated, including validation
         And the user enters <Discontinued_Date> discontinued date
         And the user selects <Company> company
         When the user clicks Save_this_computer
-        Then the Computer will be edited
-        And the user will be navigated back to "BB_Test_Webpage"
+        Then the Computer will be updated
+        And the user will be navigated back to the homepage
         And the number of computers found will increase by 0
-        And the computer has been edited on the table
+        And the computer is updated on the table with the correct information
 
         Examples:
         |Computer_name   |Introduced_Date|Discontinued_Date|Company           |

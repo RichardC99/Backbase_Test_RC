@@ -54,6 +54,14 @@ class Homepage(Basepage):
         else:
             return False
 
+    def computer_updated(self, computer_name):
+        text = self.find_value(*HomePageLocators.computer_updated_message).text
+
+        if text == f"Done! Computer {computer_name} has been updated":
+            return True
+        else:
+            return False
+
     def computer_has_correct_date(self, name, date, date_column):
         if date == "null":
             expected_date = date.replace("null", "-")
