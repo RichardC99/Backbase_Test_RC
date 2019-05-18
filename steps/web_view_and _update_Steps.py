@@ -39,3 +39,11 @@ def step_impl(context):
     assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
     assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
     assert page.computer_has_correct_company(name, company)
+
+
+@then('the number of computers found will stay the same')
+def step_impl(context, n):
+    page = Homepage(context.browser)
+    no_computers = context.computer_count
+
+    assert page.computer_count() == (no_computers), "computer count changed"

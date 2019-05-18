@@ -4,18 +4,6 @@ from modules.pages.homepage import Homepage
 from modules.helpers import AbstractJanitor
 
 
-
-# Givens
-
-
-@when('the user clicks cancel')
-def step_impl(context):
-    page = CreateAndEditPage(context.browser)
-    page.click_cancel()
-
-# Thens
-
-
 @then('the user will be navigated to "Create_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)

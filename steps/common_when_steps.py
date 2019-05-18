@@ -8,3 +8,8 @@ def step_impl(context):
     page.click_Create()
     # context.janitors.append(CleanUpAfterTest(context.computer_name, context.browser))
 
+
+@when('the user clicks cancel')
+def step_impl(context):
+    page = CreateAndEditPage(context.browser)
+    page.click_cancel()

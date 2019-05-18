@@ -17,7 +17,7 @@ Feature: Computer can be updated, including validation
         When the user clicks Save_this_computer
         Then the Computer will be updated
         And the user will be navigated back to the homepage
-        And the number of computers found will increase by 0
+        And the number of computers found will stay the same
         And the computer is updated on the table with the correct information
         And delete computer cleanup
 
