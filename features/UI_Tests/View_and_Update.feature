@@ -19,7 +19,7 @@ Feature: Computer can be updated, including validation
         And the user will be navigated back to the homepage
         And the number of computers found will stay the same
         And the computer is updated on the table with the correct information
-        And delete computer cleanup
+        And delete computer cleanup edit
 
         Examples:
         |Computer_name   |Introduced_Date|Discontinued_Date|Company           |

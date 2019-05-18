@@ -4,9 +4,11 @@ from Locators.locators import CreateAndEditPageLocators
 class CreateAndEditPage(Basepage):
 
     def enter_computer(self, name):
+        self.clear_input(*CreateAndEditPageLocators.computer_name_input)
         self.enter_text(name, *CreateAndEditPageLocators.computer_name_input)
 
     def enter_intro_date(self, date):
+        self.clear_input(*CreateAndEditPageLocators.introduced_date)
         self.enter_text(date, *CreateAndEditPageLocators.introduced_date)
 
     def enter_disc_date(self, date):

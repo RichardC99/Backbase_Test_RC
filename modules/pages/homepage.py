@@ -18,7 +18,9 @@ class Homepage(Basepage):
        self.click_element(By.LINK_TEXT, name)
 
     def search_for_computer(self, value):
+        self.clear_input(*HomePageLocators.filter_by_name_input)
         self.browser.find_element(*HomePageLocators.filter_by_name_input).send_keys(value)
+        print(value)
         self.browser.find_element(*HomePageLocators.filter_by_name_button).click()
 
     def computer_not_found(self):

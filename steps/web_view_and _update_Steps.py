@@ -71,7 +71,8 @@ def step_impl(context):
 
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
-    name = context.computer_name
+    name = context.updated_computer_name
+    print(name)
     intro_date = context.updated_intro_date
     discon_date = context.updated_discon_date
     company = context.updated_company
@@ -90,3 +91,12 @@ def step_impl(context):
     no_computers = context.computer_count
 
     assert page.computer_count() == (no_computers), "computer count changed"
+
+
+@then('Delete computer cleanup edit')
+def step_impl(context):
+     page = Homepage(context.browser)
+     page.search_for_computer(context.computer_name)
+     page.click_on_computer_name(context.updated_computer_name)
+     page = CreateAndEditPage(context.browser)
+     page.click_delete_computer()

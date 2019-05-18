@@ -22,10 +22,3 @@ def step_impl(context):
     page = Homepage(context.browser)
     assert page.isat_homepage(), "not at homepage"
 
-@then('Delete computer cleanup')
-def step_impl(context):
-     page = Homepage(context.browser)
-     page.search_for_computer(context.computer_name)
-     page.click_on_computer_name(context.computer_name)
-     page = CreateAndEditPage(context.browser)
-     page.click_delete_computer()

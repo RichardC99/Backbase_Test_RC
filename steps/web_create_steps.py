@@ -89,6 +89,14 @@ def step_impl(context, error):
         assert page.invalid_discon_date_format(), "error message not present"
 
 
+@then('Delete computer cleanup create')
+def step_impl(context):
+     page = Homepage(context.browser)
+     page.search_for_computer(context.computer_name)
+     page.click_on_computer_name(context.computer_name)
+     page = CreateAndEditPage(context.browser)
+     page.click_delete_computer()
+
 
 
 # class CleanUpAfterTest(AbstractJanitor):
