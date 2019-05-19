@@ -18,8 +18,11 @@ class CreateAndEditPage(Basepage):
     def select_company(self, company):
         self.select_dropdown_by_text(company, *CreateAndEditPageLocators.company_dropdown)
 
-    def click_Create(self):
+    def click_create(self):
         self.click_element(*CreateAndEditPageLocators.create_computer)
+
+    def click_save(self):
+        self.click_element(*CreateAndEditPageLocators.update_computer)
 
     def click_delete_computer(self):
         self.click_element(*CreateAndEditPageLocators.delete_computer_button)
@@ -27,10 +30,10 @@ class CreateAndEditPage(Basepage):
     def click_cancel(self):
         self.click_element(*CreateAndEditPageLocators.cancel_button)
 
-    def isat_Createpage(self):
+    def isat_createpage(self):
         return self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
-    def isat_Editpage(self):
+    def isat_editpage(self):
         return self.element_displayed(*CreateAndEditPageLocators.add_computer_title)
 
     def invalid_name_error(self):

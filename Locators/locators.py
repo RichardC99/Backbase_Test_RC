@@ -46,6 +46,8 @@ class CreateAndEditPageLocators:
 
     create_computer = (By.XPATH, "//*[@id=\"main\"]/form/div/input")
 
+    update_computer = (By.XPATH, "//*[@id=\"main\"]/form[1]/div/input")
+
     delete_computer_button = (By.XPATH, "//*[@id=\"main\"]/form[2]/input")
 
     Edit_computer_title = (By.XPATH, "//*[@id=\"main\"]/h1")

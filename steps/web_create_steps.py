@@ -1,4 +1,4 @@
-from behave import given, then
+from behave import given, then, when
 from modules.pages.create_and_edit_page import CreateAndEditPage
 from modules.pages.homepage import Homepage
 from modules.helpers import AbstractJanitor
@@ -39,6 +39,13 @@ def step_impl(context, company):
         page.select_company(company)
     else:
         pass
+
+
+@when('the user clicks create_this_computer')
+def step_impl(context):
+    page = CreateAndEditPage(context.browser)
+    page.click_Create()
+
 
 
 @then('the user will be navigated to "Create_Computer" page')

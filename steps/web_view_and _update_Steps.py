@@ -66,6 +66,11 @@ def step_impl(context, company):
         pass
 
 
+@when('the user clicks save_this_computer')
+def step_impl(context):
+    page = CreateAndEditPage(context.browser)
+    page.click_Create()
+
 @then('the user will be navigated to "Edit_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)

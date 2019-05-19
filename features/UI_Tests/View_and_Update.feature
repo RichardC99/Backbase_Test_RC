@@ -4,35 +4,35 @@ Feature: Computer can be updated, including validation
     Background:Navigate to edit Computer page
         Given A user has created a computer with known details
 
-    Scenario: User can open edit computer screeen
-
-        Then the user will be navigated to "Edit_Computer" page
-        And delete computer cleanup edit
-
-    Scenario Outline: User can Edit computer with valid data
-        Given computer <Computer_name> does not exist
-        And the User navigates to the Update Computer screen
-        And the User updates <Computer_name> computer name
-        And the user updates <Introduced_Date> introduced date
-        And the user updates <Discontinued_Date> discontinued date
-        And the user updates <Company> company
-        When the user clicks Save_this_computer
-        Then the Computer will be updated
-        And the user will be navigated back to the homepage
-        And the number of computers found will stay the same
-        And the computer is updated on the table with the correct information
-        And delete computer cleanup edit
-
-        Examples:
-        |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
-        |BBRC_edit_Test_1|null           |null             |null              |
-        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
-        |BBRC_edit_Test_3|2002-04-30     |2002-04-30       |null              |
-        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
-        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
-        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
-        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
-        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
+#    Scenario: User can open edit computer screeen
+#
+#        Then the user will be navigated to "Edit_Computer" page
+#        And delete computer cleanup edit
+#
+#    Scenario Outline: User can Edit computer with valid data
+#        Given computer <Computer_name> does not exist
+#        And the User navigates to the Update Computer screen
+#        And the User updates <Computer_name> computer name
+#        And the user updates <Introduced_Date> introduced date
+#        And the user updates <Discontinued_Date> discontinued date
+#        And the user updates <Company> company
+#        When the user clicks Save_this_computer
+#        Then the Computer will be updated
+#        And the user will be navigated back to the homepage
+#        And the number of computers found will stay the same
+#        And the computer is updated on the table with the correct information
+#        And delete computer cleanup edit
+#
+#        Examples:
+#        |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
+#        |BBRC_edit_Test_1|null           |null             |null              |
+#        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
+#        |BBRC_edit_Test_3|2002-04-30     |2002-04-30       |null              |
+#        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
+#        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
+#        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
+#        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
+#        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
 
 
 
