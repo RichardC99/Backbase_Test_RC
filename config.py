@@ -12,7 +12,7 @@ chrome_driver_path = f'{Test_code_location}\\chromedriver.exe'
 firefox_driver_path = f'{Test_code_location}\\geckodriver.exe'
 
 
-
+#get/computers =
 
 
 

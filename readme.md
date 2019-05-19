@@ -1,6 +1,19 @@
 # Summary
 
-Behave is a Python based BDD framework (https://behave.readthedocs.io/en/latest/) used to write automated tests for Smartpipe components
+Manual Tests are stored in the Manual Test spreadsheet. These tests have all be run an da number of issues identified. I have also indicated which of these tests have been automated. 
+Please note that due to the way the automation code has been structured it is easy to increase/decrease the number of validation tests as required. 
+
+I have also included details of API manual testing I completed using Postman. 
+
+The Automation Framework is split into 2 secions, Web testing utilising Selenium and API testing using code I have written in order to be able test the API. 
+In both cases the tests have been set up using Behave. 
+
+The only Hardcoded values are test setup data (Details of computer to be edited/deleted) all other test data can be dynamically deined int he relevant Behave feature file. 
+
+All UI tests initially carry out a check to find and delete any data that is identical to the intended test data. this is done to avoid the possibility of tests failing/passing due to bad data. 
+Each test also has a cleanup stage carried out at th eend of each scenario. 
+
+ 
 
 # Test Coverage
 

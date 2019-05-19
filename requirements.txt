@@ -3,3 +3,4 @@ selenium==3.11.0
 flake8==3.5.0
 flake8-per-file-ignores==0.6
 pandas==0.23.3
+requests==2.18.4
