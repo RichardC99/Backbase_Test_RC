@@ -25,6 +25,7 @@ def step_impl(context):
 
 
 
+
 @given('the User updates {computer_name} computer name')
 def step_impl(context, computer_name):
     page = CreateAndEditPage(context.browser)
@@ -89,6 +90,21 @@ def step_impl(context):
     intro_date = context.updated_intro_date
     discon_date = context.updated_discon_date
     company = context.updated_company
+
+    page = Homepage(context.browser)
+    page.search_for_computer(name)
+    assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
+    assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
+    assert page.computer_has_correct_company(name, company)
+
+
+@then('the computer will not have been updated')
+def step_impl(context):
+    name = context.computer_name
+    intro_date = context.intro_date
+    discon_date = context.discon_date
+    company = context.company
+    print(company)
 
     page = Homepage(context.browser)
     page.search_for_computer(name)

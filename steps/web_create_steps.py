@@ -33,11 +33,13 @@ def step_impl(context, date, format):
 
 @given('the user selects {company} company')
 def step_impl(context, company):
-    context.company = company
+
     if company != "null":
+        context.company = company
         page = CreateAndEditPage(context.browser)
         page.select_company(company)
     else:
+        context.company = company
         pass
 
 
