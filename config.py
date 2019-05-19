@@ -1,7 +1,4 @@
-
-
 url = "http://computer-database.gatling.io/computers"
-
 
 #variable parameter values
 # location of the local behave code
