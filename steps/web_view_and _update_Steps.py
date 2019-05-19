@@ -3,7 +3,7 @@ from modules.pages.create_and_edit_page import CreateAndEditPage
 from modules.pages.homepage import Homepage
 
 
-@given('A user has created a computer with known details and navigated to the edit screen')
+@given('A user has created a computer with known details')
 def step_impl(context):
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     page = Homepage(context.browser)
@@ -14,6 +14,7 @@ def step_impl(context):
         page2.click_delete_computer()
         if not (page.confirm_computer_present(computer_name)):
             break
+
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     context.execute_steps('Given add a new computer is clicked')
     context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
