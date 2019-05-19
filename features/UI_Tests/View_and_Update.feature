@@ -27,7 +27,7 @@ Feature: Computer can be updated, including validation
         |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
         |BBRC_edit_Test_1|null           |null             |null              |
         |BBRC_edit_Test_2|2008-02-29     |null             |null              |
-        |BBRC_edit_Test_3|2002-04-30     |2002-04-30       |null              |
+        |BBRC_edit_Test_3|2020-04-30     |2002-04-30       |null              |
         |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
         |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
         |BBRC_edit_Test_6|null           |null             |Thinking Machines |

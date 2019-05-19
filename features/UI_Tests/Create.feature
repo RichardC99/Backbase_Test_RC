@@ -26,7 +26,7 @@ Feature: Computer can be added, including validation
         |Computer_name     |Introduced_Date|Discontinued_Date|Company                |
         |BBRC_Create_Test_1|null           |null             |null                   |
         |BBRC_Create_Test_2|2008-02-29     |null             |null                   |
-        |BBRC_Create_Test_3|2002-04-30     |2002-04-30       |null                   |
+        |BBRC_Create_Test_3|2020-04-30     |2002-04-30       |null                   |
         |BBRC_Create_Test_4|2004-7-1       |2020-02-29       |Commodore International|
         |BBRC_Create_Test_5|null           |2020-02-29       |Netronics              |
         |BBRC_Create_Test_6|null           |null             |Thinking Machines      |
@@ -59,6 +59,7 @@ Feature: Computer can be added, including validation
         |BBRC_Invalid_Discon_Date3 |null           |29/02/2008       |null              |invalid_discon_date_format|
         |BBRC_Invalid_Discon_Date4 |null           |test             |null              |invalid_discon_date_format|
         |BBRC_Invalid_Discon_Date5 |null           |2007-02-29       |null              |invalid_discon_date_format|
+        |BBRC_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null              |Invalid_intro_Date_Format |
         |null                      |2008/01/01     |29-02-2008       |null              |all_data_invalid          |
 
     Scenario: User can cancel adding a computer
