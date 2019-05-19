@@ -74,7 +74,7 @@ def step_impl(context):
 @then('the user will be navigated to "Edit_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
-    assert page.isat_Editpage(), "Not at add Edit page"
+    assert page.isat_editpage(), "Not at add Edit page"
     page.click_cancel()
 
 

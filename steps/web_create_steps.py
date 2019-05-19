@@ -44,20 +44,20 @@ def step_impl(context, company):
 @when('the user clicks create_this_computer')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
-    page.click_Create()
+    page.click_create()
 
 
 
 @then('the user will be navigated to "Create_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
-    assert page.isat_Createpage(), "Not at add Computer page"
+    assert page.isat_createpage(), "Not at add Computer page"
 
 
 @then('the user will remain at the add computer screen')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
-    assert page.isat_Createpage(), "Not at add computer page"
+    assert page.isat_createpage(), "Not at add computer page"
 
 
 @then('the Computer will be created')
