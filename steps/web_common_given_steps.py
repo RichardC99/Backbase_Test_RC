@@ -35,3 +35,15 @@ def step_impl(context, computer_name):
         if not (page.confirm_computer_present(computer_name)):
             break
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+
+@given('computer {Computer_name} does not exist for API testing')
+def step_impl(context, Computer_name):
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    page = Homepage(context.browser)
+    page2 = CreateAndEditPage(context.browser)
+    while page.confirm_computer_present(Computer_name):
+        page.click_on_computer_name(Computer_name)
+        page2.click_delete_computer()
+        if not (page.confirm_computer_present(Computer_name)):
+            break
+

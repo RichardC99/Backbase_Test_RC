@@ -24,7 +24,7 @@ def step_impl(context):
     context.execute_steps('When the user clicks Save_this_computer')
 
 
-@given('A user has created a computer with known details for API testing')
+@given('A user has created a computer with known details for updating via the API')
 def step_impl(context):
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
     page = Homepage(context.browser)

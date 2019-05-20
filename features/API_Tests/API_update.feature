@@ -2,11 +2,11 @@
 Feature: Computer can be updated, including validation
 
     Background:Navigate to edit Computer page
-        Given A user has created a computer with known details
+        Given A user has created a computer with known details for updating via the API
 
 
     Scenario Outline: User can Edit computer with valid data
-        Given computer <Computer_name> does not exist
+        Given computer <Computer_name> does not exist for API testing
         When a user updates record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
         Then the response status should be 200
         Then the computer is updated on the table with the correct information

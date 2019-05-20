@@ -4,7 +4,7 @@ Feature: Computer can be added, including validation
 
     @web
     Scenario Outline: User can create computer with valid data via API
-        Given computer <Computer_name> does not exist
+        Given computer <Computer_name> does not exist for API testing
         When a user creates a new record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
         Then the response status should be 200
         And the computer will be visible in the UI
