@@ -23,7 +23,7 @@ Feature: Computer can be added, including validation
 
 
     Scenario Outline: User cannot create a computer with invalid data via API
-        Given a user creates a new record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
+        When a user creates a new record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
         Then the response status should be 400
 
         Examples:

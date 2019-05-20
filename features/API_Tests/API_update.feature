@@ -32,20 +32,20 @@ Feature: Computer can be updated, including validation
         And the computer will be not have been updated in the UI
 
         Examples:
-        |Computer_name                  |Introduced_Date|Discontinued_Date|Company   |
-        |null                           |2008-01-01     |2008-01-01       |IBM       |
-        |BBRC_edit_invalid_intro_date1  |2008/01/01     |null             |null      |
-        |BBRC_edit_invalid_intro_date2  |29-02-2008     |null             |null      |
-        |BBRC_edit_invalid_intro_date3  |29/02/2008     |null             |null      |
-        |BBRC_edit_invalid_intro_date4  |test           |null             |null      |
-        |BBRC_edit_invalid_intro_date5  |2007-02-29     |null             |null      |
-        |BBRC_edit_invalid_discon_date1 |null           |2008/01/01       |null      |
-        |BBRC_edit_invalid_discon_date2 |null           |29-02-2008       |null      |
-        |BBRC_edit_invalid_discon_date3 |null           |29/02/2008       |null      |
-        |BBRC_edit_invalid_discon_date4 |null           |test             |null      |
-        |BBRC_edit_invalid_discon_date5 |null           |2007-02-29       |null      |
-        |null                           |2008/01/01     |29-02-2008       |null      |
-        |BBRC_edit_invalid_company      |2008-02-29     |2020-02-29       |aa        |
+        |Computer_name                  |Introduced_Date|Discontinued_Date|Company        |
+        |null                           |2008-01-01     |2008-01-01       |IBM            |
+        |BBRC_edit_invalid_intro_date1  |2008/01/01     |null             |null           |
+        |BBRC_edit_invalid_intro_date2  |29-02-2008     |null             |null           |
+        |BBRC_edit_invalid_intro_date3  |29/02/2008     |null             |null           |
+        |BBRC_edit_invalid_intro_date4  |test           |null             |null           |
+        |BBRC_edit_invalid_intro_date5  |2007-02-29     |null             |null           |
+        |BBRC_edit_invalid_discon_date1 |null           |2008/01/01       |null           |
+        |BBRC_edit_invalid_discon_date2 |null           |29-02-2008       |null           |
+        |BBRC_edit_invalid_discon_date3 |null           |29/02/2008       |null           |
+        |BBRC_edit_invalid_discon_date4 |null           |test             |null           |
+        |BBRC_edit_invalid_discon_date5 |null           |2007-02-29       |null           |
+        |null                           |2008/01/01     |29-02-2008       |null           |
+        |BBRC_edit_invalid_company      |2008-02-29     |2020-02-29       |invalid company|
 
 
 
