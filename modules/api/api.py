@@ -44,6 +44,29 @@ class API():
     def delete_computer(self, url):
         self.response = requests.post(f"{url}/delete")
 
+    def update_computer(self, name, intro_date, discon_date, company, url):
+        if name == "null":
+            name = ""
+
+        if intro_date == "null":
+            intro_date = ""
+
+        if discon_date == "null":
+            discon_date = ""
+
+        if company == "null":
+            company = ""
+        else:
+            company = self.get_company_code(company)
+
+        payload = {
+            "name": f"{name}",
+            "introduced": f"{intro_date}",
+            "discontinued": f"{discon_date}",
+            "company": f"{company}"
+        }
+
+        self.response = requests.post(url, json=payload)
 
     def get_company_code(self, company):
 

@@ -7,28 +7,20 @@ Feature: Computer can be updated, including validation
 
     Scenario Outline: User can Edit computer with valid data
         Given computer <Computer_name> does not exist
-        And the User navigates to the Update Computer screen
-        And the User updates <Computer_name> computer name
-        And the user updates <Introduced_Date> introduced date
-        And the user updates <Discontinued_Date> discontinued date
-        And the user updates <Company> company
-        When the user clicks Save_this_computer
-        Then the Computer will be updated
-        And the user will be navigated back to the homepage
-        And the number of computers found will stay the same
-        And the computer is updated on the table with the correct information
+        When a user updates record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
+        Then the computer is updated on the table with the correct information
         And delete computer cleanup edit
 
         Examples:
         |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
         |BBRC_edit_Test_1|null           |null             |null              |
-        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
-        |BBRC_edit_Test_3|2020-04-30     |2002-04-30       |null              |
-        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
-        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
-        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
-        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
-        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
+#        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
+#        |BBRC_edit_Test_3|2020-04-30     |2002-04-30       |null              |
+#        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
+#        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
+#        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
+#        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
+#        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
 
 
 
