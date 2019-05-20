@@ -10,11 +10,6 @@ The only Hardcoded values are test setup data (Details of computer to be edited/
 All UI tests initially carry out a check to find and delete any data that is identical to the intended test data. this is done to avoid the possibility of tests failing/passing due to bad data. 
 Each test also has a clean-up stage carried out at the end of each scenario. 
 
- 
-
-# Test Coverage
-
-
 # Installation (Windows/linux PC)
 1. Install python 3.6 (see instructions below) and make sure it is enabled if multiple versions of Python on system
 2. Install virtualenv `pip install virtualenv`
