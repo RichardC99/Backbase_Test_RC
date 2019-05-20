@@ -27,7 +27,7 @@ def step_impl(context):
 @given('A user has created a computer with known details for API deletion')
 def step_impl(context):
     context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
-    computer_name = "BB_computer_for_delete_testcls"
+    computer_name = "BB_computer_for_delete_test"
     page = Homepage(context.browser)
     page2 = CreateAndEditPage(context.browser)
     while page.confirm_computer_present(computer_name):
