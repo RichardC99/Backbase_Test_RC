@@ -131,7 +131,7 @@ def step_impl(context):
     page = Homepage(context.browser)
     page.search_for_computer(name)
     assert page.computer_has_correct_date(name, intro_date, "intro"), "intro_date is incorrect"
-    assert page.computer_has_correct_date(name, discon_date, "dison"), "discon_date is incorrect"
+    assert page.computer_has_correct_date(name, discon_date, "discon"), "discon_date is incorrect"
     assert page.computer_has_correct_company(name, company)
 
 
