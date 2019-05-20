@@ -115,6 +115,6 @@ class API():
                     "HTC Corporation": 41,
                     "Research In Motion": 42,
                     "Samsung Electronics": 43,
-                    "un mapped company": "aa"
+                    "invalid company": "aa"
         }
         return company_dict[company]

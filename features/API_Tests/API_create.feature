@@ -27,17 +27,18 @@ Feature: Computer can be added, including validation
         Then the response status should be 400
 
         Examples:
-        |Computer_name             |Introduced_Date|Discontinued_Date|Company           |
-        |null                      |2008-01-01     |2008-01-01       |IBM               |
-        |BBRC_API_Invalid_intro_Date1  |2008/01/01     |null             |null              |
-        |BBRC_API_Invalid_intro_Date2  |29-02-2008     |null             |null              |
-        |BBRC_API_Invalid_intro_Date3  |29/02/2008     |null             |null              |
-        |BBRC_API_Invalid_intro_Date4  |test           |null             |null              |
-        |BBRC_API_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null              |
-        |BBRC_API_Invalid_Discon_Date1 |null           |2008/01/01       |null              |
-        |BBRC_API_Invalid_Discon_Date2 |null           |29-02-2008       |null              |
-        |BBRC_API_Invalid_Discon_Date3 |null           |29/02/2008       |null              |
-        |BBRC_API_Invalid_Discon_Date4 |null           |test             |null              |
-        |BBRC_API_Invalid_Discon_Date5 |null           |2007-02-29       |null              |
-        |BBRC_API_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null              |
-        |null                      |2008/01/01     |29-02-2008       |null              |
+        |Computer_name                 |Introduced_Date|Discontinued_Date|Company        |
+        |null                          |2008-01-01     |2008-01-01       |IBM            |
+        |BBRC_API_Invalid_intro_Date1  |2008/01/01     |null             |null           |
+        |BBRC_API_Invalid_intro_Date2  |29-02-2008     |null             |null           |
+        |BBRC_API_Invalid_intro_Date3  |29/02/2008     |null             |null           |
+        |BBRC_API_Invalid_intro_Date4  |test           |null             |null           |
+        |BBRC_API_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null           |
+        |BBRC_API_Invalid_Discon_Date1 |null           |2008/01/01       |null           |
+        |BBRC_API_Invalid_Discon_Date2 |null           |29-02-2008       |null           |
+        |BBRC_API_Invalid_Discon_Date3 |null           |29/02/2008       |null           |
+        |BBRC_API_Invalid_Discon_Date4 |null           |test             |null           |
+        |BBRC_API_Invalid_Discon_Date5 |null           |2007-02-29       |null           |
+        |BBRC_API_Invalid_intro_Date5  |2007-02-29     |2007-02-29       |null           |
+        |null                          |2008/01/01     |29-02-2008       |null           |
+        |BBRC_create_invalid_company   |2008-02-29     |2020-02-29       |invalid company|
