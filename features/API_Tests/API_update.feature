@@ -8,6 +8,7 @@ Feature: Computer can be updated, including validation
     Scenario Outline: User can Edit computer with valid data
         Given computer <Computer_name> does not exist
         When a user updates record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
+        Then the response status should be 200
         Then the computer is updated on the table with the correct information
         And delete computer cleanup edit
 
