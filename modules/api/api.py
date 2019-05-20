@@ -36,17 +36,13 @@ class API():
 
 
     def confirm_response_code(self, expected_code):
+
         if str(self.response) == f"<Response [{expected_code}]>":
             return True
         return False
 
     def delete_computer(self, url):
-        self.response = requests.delete(url)
-
-
-
-
-
+        self.response = requests.post(f"{url}/delete")
 
 
     def get_company_code(self, company):

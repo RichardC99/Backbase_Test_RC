@@ -1,8 +1,8 @@
-@web
+
 Feature: Computer can be added, including validation
 
 
-
+    @web
     Scenario Outline: User can create computer with valid data via API
         Given a user creates a new record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
         Then the response status should be 200

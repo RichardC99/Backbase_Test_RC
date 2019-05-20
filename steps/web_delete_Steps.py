@@ -42,7 +42,7 @@ def step_impl(context):
     context.execute_steps('Given the user enters 2000-07-07 discontinued date')
     context.execute_steps('Given the user selects Apple Inc. company')
     context.execute_steps('When the user clicks Save_this_computer')
-    context.execute_steps('the User navigates to the Update Computer screen')
+    context.execute_steps('Given the User navigates to the Update Computer screen')
 
 
 
