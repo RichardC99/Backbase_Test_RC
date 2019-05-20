@@ -58,9 +58,17 @@ def step_impl(context):
     assert page.computer_deleted(), "computer not deleted"
 
 
-@then('the computer will not have been added to the table')
+@then('the computer will not be present in the table')
 def step_impl(context):
     page = Homepage(context.browser)
+    page.search_for_computer(context.computer_name)
+    assert page.computer_not_found(), "computer not deleted"
+
+
+@then('The computer will not be searchable in the UI')
+def step_impl(context):
+    page = Homepage(context.browser)
+    page.goto_home_page()
     page.search_for_computer(context.computer_name)
     assert page.computer_not_found(), "computer not deleted"
 

@@ -71,7 +71,7 @@ Feature: Computer can be added, including validation
         When the user clicks cancel
         Then the user will be navigated back to the homepage
         And the number of computers found will increase by 0
-        And the computer will not have been added to the table
+        And the computer will not be present in the table
 
 
 

@@ -5,3 +5,4 @@ from modules.api.api import API
 def step_impl(context):
     context.api = API()
     context.api.delete_computer(context.computer_url)
+
