@@ -40,6 +40,10 @@ class API():
             return True
         return False
 
+    def delete_computer(self, url):
+        self.response = requests.delete(url)
+
+
 
 
 
