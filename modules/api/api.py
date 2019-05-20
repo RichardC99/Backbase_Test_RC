@@ -68,6 +68,7 @@ class API():
 
         self.response = requests.post(url, json=payload)
 
+
     def get_company_code(self, company):
 
 
