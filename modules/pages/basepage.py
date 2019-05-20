@@ -45,5 +45,8 @@ class Basepage():
         else:
             return True
 
+    def get_page_url(self):
+        return self.browser.current_url
+
 
 

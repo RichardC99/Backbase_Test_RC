@@ -45,3 +45,6 @@ class CreateAndEditPage(Basepage):
     def invalid_discon_date_format(self):
         return self.element_displayed(*CreateAndEditPageLocators.invalid_dscon_date)
 
+    def get_computer_page_url(self):
+        return self.get_page_url()
+

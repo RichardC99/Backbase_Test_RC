@@ -9,6 +9,7 @@ def step_impl(context):
     context.computer_count = page.computer_count()
     page.search_for_computer(context.computer_name)
     page.click_on_computer_name(context.computer_name)
+    CreateAndEditPage.get_page_url()
 
 
 @given('A user has navigated to the BB_Test_Webpage')

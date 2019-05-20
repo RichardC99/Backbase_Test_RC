@@ -72,6 +72,7 @@ def step_impl(context):
     page = CreateAndEditPage(context.browser)
     page.click_save()
 
+
 @then('the user will be navigated to "Edit_Computer" page')
 def step_impl(context):
     page = CreateAndEditPage(context.browser)
@@ -83,6 +84,7 @@ def step_impl(context):
 def step_impl(context):
     page = Homepage(context.browser)
     assert page.computer_updated(context.updated_computer_name), "Computer not updated"
+
 
 @then('the computer is updated on the table with the correct information')
 def step_impl(context):
