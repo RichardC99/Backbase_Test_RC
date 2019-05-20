@@ -15,42 +15,38 @@ Feature: Computer can be updated, including validation
         Examples:
         |Computer_name   |Introduced_Date|Discontinued_Date|Company           |
         |BBRC_edit_Test_1|null           |null             |null              |
-#        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
-#        |BBRC_edit_Test_3|2020-04-30     |2002-04-30       |null              |
-#        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
-#        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
-#        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
-#        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
-#        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
+        |BBRC_edit_Test_2|2008-02-29     |null             |null              |
+        |BBRC_edit_Test_3|2020-04-30     |2002-04-30       |null              |
+        |BBRC_edit_Test_4|2004-7-1       |2020-02-29       |IBM               |
+        |BBRC_edit_Test_5|null           |2020-02-29       |RCA               |
+        |BBRC_edit_Test_6|null           |null             |Thinking Machines |
+        |BBRC_edit_Test_7|1997-09-05     |null             |IBM               |
+        |BBRC_edit_Test_8|null           |1986-04-07       |null              |
 
 
-#
-#    Scenario Outline: User cannot edit a computer with invalid data
-#        Given the User navigates to the Update Computer screen
-#        And the User updates <Computer_name> computer name
-#        And the user updates <Introduced_Date> introduced date
-#        And the user updates <Discontinued_Date> discontinued date
-#        And the user updates <Company> company
-#        When the user clicks Save_this_computer
-#        Then the user will remain at the add computer screen
-#        Then the correct error message will appear <error>
-#        And Delete computer cleanup validation
-#
-#        Examples:
-#        |Computer_name                  |Introduced_Date|Discontinued_Date|Company   |error                     |
-#        |null                           |2008-01-01     |2008-01-01       |IBM       |name_required             |
-#        |BBRC_edit_invalid_intro_date1  |2008/01/01     |null             |null      |invalid_intro_date_format |
-#        |BBRC_edit_invalid_intro_date2  |29-02-2008     |null             |null      |Invalid_intro_Date_Format |
-#        |BBRC_edit_invalid_intro_date3  |29/02/2008     |null             |null      |Invalid_intro_Date_Format |
-#        |BBRC_edit_invalid_intro_date4  |test           |null             |null      |Invalid_intro_Date_Format |
-#        |BBRC_edit_invalid_intro_date5  |2007-02-29     |null             |null      |Invalid_intro_Date_Format |
-#        |BBRC_edit_invalid_discon_date1 |null           |2008/01/01       |null      |invalid_discon_date_format|
-#        |BBRC_edit_invalid_discon_date2 |null           |29-02-2008       |null      |invalid_discon_date_format|
-#        |BBRC_edit_invalid_discon_date3 |null           |29/02/2008       |null      |invalid_discon_date_format|
-#        |BBRC_edit_invalid_discon_date4 |null           |test             |null      |invalid_discon_date_format|
-#        |BBRC_edit_invalid_discon_date5 |null           |2007-02-29       |null      |invalid_discon_date_format|
-#        |null                           |2008/01/01     |29-02-2008       |null      |all_data_invalid          |
-#
-#
-#
-#
+
+    Scenario Outline: User cannot edit a computer with invalid data
+        Given computer <Computer_name> does not exist for API testing
+        When a user updates record with name "<Computer_name>", intro_date "<Introduced_Date>", discon_date "<Discontinued_Date>" and company "<Company>"
+        Then the response status should be 400
+        And the computer will be not have been updated in the UI
+        And Delete computer cleanup validation
+
+        Examples:
+        |Computer_name                  |Introduced_Date|Discontinued_Date|Company   |
+        |null                           |2008-01-01     |2008-01-01       |IBM       |
+        |BBRC_edit_invalid_intro_date1  |2008/01/01     |null             |null      |
+        |BBRC_edit_invalid_intro_date2  |29-02-2008     |null             |null      |
+        |BBRC_edit_invalid_intro_date3  |29/02/2008     |null             |null      |
+        |BBRC_edit_invalid_intro_date4  |test           |null             |null      |
+        |BBRC_edit_invalid_intro_date5  |2007-02-29     |null             |null      |
+        |BBRC_edit_invalid_discon_date1 |null           |2008/01/01       |null      |
+        |BBRC_edit_invalid_discon_date2 |null           |29-02-2008       |null      |
+        |BBRC_edit_invalid_discon_date3 |null           |29/02/2008       |null      |
+        |BBRC_edit_invalid_discon_date4 |null           |test             |null      |
+        |BBRC_edit_invalid_discon_date5 |null           |2007-02-29       |null      |
+        |null                           |2008/01/01     |29-02-2008       |null      |
+
+
+
+

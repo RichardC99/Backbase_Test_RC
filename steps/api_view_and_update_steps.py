@@ -10,3 +10,9 @@ def step_impl(context, Computer_name, Introduced_Date, Discontinued_Date, Compan
     context.api = API()
 
     context.api.update_computer(Computer_name, Introduced_Date, Discontinued_Date, Company, context.computer_url)
+
+@then('the computer will be not have been updated in the UI')
+def step_impl(context, ):
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    context.execute_steps('Then the computer has been added to the table with the correct information')
+    context.execute_steps('Then Delete computer cleanup create')
