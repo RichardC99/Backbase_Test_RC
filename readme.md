@@ -1,17 +1,14 @@
-# Summary
-
-Manual Tests are stored in the Manual Test spreadsheet. These tests have all be run an da number of issues identified. I have also indicated which of these tests have been automated. 
+Manual Tests are stored in the Manual Test spreadsheet. These tests have all be run and a number of issues identified. I have also indicated which of these tests have been automated. 
 Please note that due to the way the automation code has been structured it is easy to increase/decrease the number of validation tests as required. 
 
 I have also included details of API manual testing I completed using Postman. 
 
-The Automation Framework is split into 2 secions, Web testing utilising Selenium and API testing using code I have written in order to be able test the API. 
-In both cases the tests have been set up using Behave. 
+The Automation Framework is split into 2 sections, Web testing utilising Selenium and API testing in both cases the tests have been set up using Behave. 
 
-The only Hardcoded values are test setup data (Details of computer to be edited/deleted) all other test data can be dynamically deined int he relevant Behave feature file. 
+The only Hardcoded values are test setup data (Details of computer to be edited/deleted) all other test data can be dynamically edited in the relevant Behave feature file. 
 
 All UI tests initially carry out a check to find and delete any data that is identical to the intended test data. this is done to avoid the possibility of tests failing/passing due to bad data. 
-Each test also has a cleanup stage carried out at th eend of each scenario. 
+Each test also has a clean-up stage carried out at the end of each scenario. 
 
  
 
@@ -28,9 +25,9 @@ Each test also has a cleanup stage carried out at th eend of each scenario.
   - Linux `source bin/activate`
 6. Git clone this project into the new virtualenv directory created in step 3 `git clone https://github.com/RichardC99/Computers_Database_Tests_RC.git`
 7. Change into behave directory
-8. Install Behave and all it's dependencies using `pip install -r requirements.txt`
+8. Install Behave and all its dependencies using `pip install -r requirements.txt`
 9. Install an applicable IDE, these tests where written and run using JetBrains PyCharm a community edition is available from https://www.jetbrains.com/pycharm/download/#section=windows
-10. Requirements.txt contains the additional libraries required to run tests. PyCharm will automatically ask to install these the first time you open the project. In addition pandas may require an install of lxml (pip install lxml) 
+10. Requirements.txt contains the additional libraries required to run tests. PyCharm will automatically ask to install these the first time you open the project. In addition, pandas may require an install of lxml (pip install lxml) 
 
 # Config 
 1. copy config.py.example to config.py and set values for your environment for 
@@ -52,5 +49,5 @@ Each test also has a cleanup stage carried out at th eend of each scenario.
 http://behave.readthedocs.io/en/latest/tutorial.html
 
 # Coding standards
-All python code has been written to to adhere to pep8 style guide (https://www.python.org/dev/peps/pep-0008/)
+All python code has been written to adhere to pep8 style guide (https://www.python.org/dev/peps/pep-0008/)
 
