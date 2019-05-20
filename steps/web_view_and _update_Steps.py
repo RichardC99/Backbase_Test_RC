@@ -24,6 +24,26 @@ def step_impl(context):
     context.execute_steps('When the user clicks Save_this_computer')
 
 
+@given('A user has created a computer with known details')
+def step_impl(context):
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    page = Homepage(context.browser)
+    page2 = CreateAndEditPage(context.browser)
+    computer_name = "BB_computer_for_edit_test"
+    while page.confirm_computer_present(computer_name):
+        page.click_on_computer_name(computer_name)
+        page2.click_delete_computer()
+        if not (page.confirm_computer_present(computer_name)):
+            break
+
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    context.execute_steps('Given add a new computer is clicked')
+    context.execute_steps('Given the User enters BB_computer_for_edit_test computer name')
+    context.execute_steps('Given the user enters 1986-04-04 introduced date')
+    context.execute_steps('Given the user enters 2000-07-07 discontinued date')
+    context.execute_steps('Given the user selects Apple Inc. company')
+    context.execute_steps('When the user clicks Save_this_computer')
+    context.execute_steps('Given the User navigates to the Update Computer screen')
 
 
 @given('the User updates {computer_name} computer name')

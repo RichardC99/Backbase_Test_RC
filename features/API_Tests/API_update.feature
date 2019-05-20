@@ -1,12 +1,9 @@
+@web
 Feature: Computer can be updated, including validation
 
     Background:Navigate to edit Computer page
         Given A user has created a computer with known details
 
-    Scenario: User can open edit computer screeen
-        Given the User navigates to the Update Computer screen
-        Then the user will be navigated to "Edit_Computer" page
-        And Delete computer cleanup validation
 
     Scenario Outline: User can Edit computer with valid data
         Given computer <Computer_name> does not exist
