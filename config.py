@@ -3,7 +3,7 @@ url = "http://computer-database.gatling.io/computers"
 #variable parameter values
 # location of the local behave code
 
-Test_code_location = "C:\\Users\\richard.cariven\\Documents\\Backbase_Test_RC\\utilities"
+Test_code_location = "C:\\Users\\richard.cariven\\Documents\\\Computers_Database_Tests_RC\\utilities"
 
 driver = "chrome"
 # driver = "firefox"
@@ -16,3 +16,4 @@ firefox_driver_path = f'{Test_code_location}\\geckodriver.exe'
 
 
 
+# C:\Users\richard.cariven\Documents\Computers_Database_Tests_RC\utilities

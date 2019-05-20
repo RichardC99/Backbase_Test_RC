@@ -15,3 +15,9 @@ def step_impl(context, Computer_name, Introduced_Date, Discontinued_Date, Compan
 @then('the response status should be {response_code}')
 def step_impl(context, response_code):
     assert context.api.confirm_response_code(response_code)
+
+@then('the computer will be visible in the UI')
+def step_impl(context,):
+    context.execute_steps('Given A user has navigated to the BB_Test_Webpage')
+    context.execute_steps('Then the computer has been added to the table with the correct information')
+    context.execute_steps('Then Delete computer cleanup create')
