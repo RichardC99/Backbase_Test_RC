@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/Backbase_Test_RC.iml" filepath="$PROJECT_DIR$/.idea/Backbase_Test_RC.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/Computer_Database_Tests.iml" filepath="$PROJECT_DIR$/.idea/Computer_Database_Tests.iml" />
     </modules>
   </component>
 </project>
