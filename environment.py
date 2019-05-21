@@ -62,7 +62,7 @@ def setup_browser(context):
         options = ChromeOptions()
         options.add_argument("--window-position=2000,0")
         #use below path for Windows/Linux machines along with the correct config file
-        
+
         #context.browser = webdriver.Chrome(executable_path=driver_path, chrome_options=options)
 
         #use the below path for OSX machines, along with the corretc config file

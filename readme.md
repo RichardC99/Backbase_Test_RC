@@ -10,8 +10,34 @@ The only Hardcoded values are test setup data (Details of computer to be edited/
 All UI tests initially carry out a check to find and delete any data that is identical to the intended test data. this is done to avoid the possibility of tests failing/passing due to bad data. 
 Each test also has a clean-up stage carried out at the end of each scenario. 
 
+# Installation (MAC, OSX)
+1. Install python 3.6 and make sure it is set as the project interpreter for your IDE
+2. Git clone this project into your chosen directory git clone `git clone https://github.com/RichardC99/Computers_Database_Tests_RC.git`
+3. Install Selenium, ChromeDriver and Behave
+    - Selenium = pip3 install selenium 
+    - Behave = sudo pip install behave
+    - Chromedriver = brew cask install chromedriver
+   
+
+Alternativly the requirements.txt file lists all required compnents. PyCharm will automatically prompt the user and then install these on opening the project
+
+# Config (OSX)
+Copy the config mac example txt file into config.py 
+Because HomeBrew installs Chrome Driver directly into the path you do not need to specify the home directory of the chromedriver.exe
+In the environmtent file ensure the correct context.browser line is commented out 
+
+        context.browser = webdriver.Chrome() ---- un commented
+
+        context.browser = webdriver.Chrome(executable_path=driver_path, chrome_options=options) ---- commented out (WIndows/Linux only)
+
+# Run Tests(OSX)
+In the terminal navigate to the location of the features folder 
+To run tests enter behave features\(the chosen feature file to run)
+Running behave features/ will run all feature files and tests. 
+
+
 # Installation (Windows/linux PC)
-1. Install python 3.6 (see instructions below) and make sure it is enabled if multiple versions of Python on system
+1. Install python 3 and make sure it is enabled if multiple versions of Python on system
 2. Install virtualenv `pip install virtualenv`
 3. Make a new directory called something like 'virtual-behave' and go into that directory
 4. Create a Python virtual environment in that directory with `virtualenv .`
@@ -21,14 +47,20 @@ Each test also has a clean-up stage carried out at the end of each scenario.
 6. Git clone this project into the new virtualenv directory created in step 3 `git clone https://github.com/RichardC99/Computers_Database_Tests_RC.git`
 7. Change into behave directory
 8. Install Behave and all its dependencies using `pip install -r requirements.txt`
-9. Install an applicable IDE, these tests where written and run using JetBrains PyCharm a community edition is available from https://www.jetbrains.com/pycharm/download/#section=windows
-10. Requirements.txt contains the additional libraries required to run tests. PyCharm will automatically ask to install these the first time you open the project. In addition, pandas may require an install of lxml (pip install lxml) 
+9. Install Selenium 
+10. Install an applicable IDE, these tests where written and run using JetBrains PyCharm a community edition is available from https://www.jetbrains.com/pycharm/download/#section=windows
+11. Requirements.txt contains the additional libraries required to run tests. PyCharm will automatically ask to install these the first time you open the project. In addition, pandas may require an install of lxml (pip install lxml) 
 
-# Config 
+# Config Windows/ Linux
 1. copy config.py.example to config.py and set values for your environment for 
   - url - set as default to "http://computer-database.gatling.io/computers"
   - driver - which browser to test, firefox or chrome
-  - <browser>_driver_path - local directory path to driver executable
+  - <browser>_driver_path - local directory path to driver executable (chrome driver etc) 
+ 
+        context.browser = webdriver.Chrome() ---- comment out for Windows
+
+        context.browser = webdriver.Chrome(executable_path=driver_path, chrome_options=options) ---- Not commented out (WIndows/Linux only)
+
   
 
 # Run tests
